@@ -2,7 +2,7 @@ using System;
 
 namespace Entities
 {
-    public struct Person : IEquatable<Person>
+    public class Person : IEquatable<Person>
     {
         public Guid id { get; }
         public string Name { get; set; }
