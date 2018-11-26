@@ -1,36 +1,53 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Entities;
+using Repository.ValidatorNs;
 
 namespace Repository
 {
-    public sealed class PersonRepository : IRepository<Person>
+    internal abstract class PersonRepository : IRepository<Person>
     {
-        private PersonRepository() { }
-        public static PersonRepository Instance { get; }
 
-        private HashSet<Person> people = new HashSet<Person>();
+        protected IValidator<Person> _validator;
 
-        public ICollection<Person> GetAll() => people;
-        public Person Get(Guid personId) => people.First(person => person.HasId(personId));
-        
-        public void Create(Person newPerson, out bool successful)
+        protected PersonRepository(IValidator<Person> personValidator)
         {
-            successful = people.Add(newPerson);
+            _validator = personValidator;
         }
-        public void Update(Person changedPerson, out bool successful)
+
+        public abstract ICollection<Person> GetAll();
+        public abstract Person Get(string personId);
+
+        public virtual void Create(Person newPerson, out bool successful)
         {
-            bool removalSuccessful, additionSuccessful;
-            removalSuccessful = people.Remove(changedPerson);
-            additionSuccessful = (removalSuccessful) ? people.Add(changedPerson) : false;
-            successful = removalSuccessful && additionSuccessful;
+            successful = false;
+            var isValidPerson = _validator.Validate(newPerson);
+            var isImpostor = IsKnownPerson(newPerson);
+            if (!isValidPerson || isImpostor) return;
         }
-        public void Delete(Guid personId, out bool successful) 
+        public virtual void Update(Person changedPerson, out bool successful)
         {
-            var personToBeDeleted = people.First(person => person.HasId(personId));
-            successful = people.Remove(personToBeDeleted);
+            successful = false;
+            var isValidPerson = _validator.Validate(changedPerson);
+            var isKnown = IsKnownPerson(changedPerson);
+            if (!isValidPerson || !isKnown) return;
+        }
+        public virtual void Delete(string personId, out bool successful)
+        {
+            successful = false;
+            var isKnown = IsKnownPersonId(personId);
+            if (!isKnown) return;
+        }
+
+        private bool IsKnownPerson(Person person)
+        {
+            return GetAll().AsEnumerable().Contains(person);
+        }
+
+        private bool IsKnownPersonId(string id)
+        {
+            return GetAll().AsEnumerable().Any(personInRepository => personInRepository.HasId(id));
         }
 
     }
