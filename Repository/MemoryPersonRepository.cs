@@ -14,7 +14,7 @@ namespace Repository
         : base(personValidator) { }
 
         public override ICollection<Person> GetAll() => _people;
-        public override Person Get(string personId) => _people.First(person => person.HasId(personId));
+        public override Person Get(string personId) => _people.FirstOrDefault(person => person.HasId(personId));
 
         public override void Create(Person newPerson, out bool successful)
         {
@@ -27,7 +27,7 @@ namespace Repository
         {
             base.Update(changedPerson, out successful);
             Delete(changedPerson.id, out bool removalSuccessful);
-            _people.Add(changedPerson);
+            if (removalSuccessful) _people.Add(changedPerson);
             successful = removalSuccessful && _people.Contains(changedPerson);
         }
 
@@ -35,8 +35,15 @@ namespace Repository
         {
             base.Delete(personId, out successful);
             var person = Get(personId);
-            bool removalSuccessful = _people.Remove(person);
-            successful = removalSuccessful;
+            if (person != null)
+            {
+                bool removalSuccessful = _people.Remove(person);
+                successful = removalSuccessful;
+            }
+            else
+            {
+                successful = false;
+            }
         }
 
     }
