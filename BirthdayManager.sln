@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities.Tests", "Entities.Tests\Entities.Tests.csproj", "{5D9781F8-DB9A-4E1E-B8D7-2D536459BA04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.Tests", "Repository.Tests\Repository.Tests.csproj", "{B6E10BE3-1F4B-4D00-8CD6-68D632289F07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,9 @@ Global
 		{5D9781F8-DB9A-4E1E-B8D7-2D536459BA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D9781F8-DB9A-4E1E-B8D7-2D536459BA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D9781F8-DB9A-4E1E-B8D7-2D536459BA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E10BE3-1F4B-4D00-8CD6-68D632289F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E10BE3-1F4B-4D00-8CD6-68D632289F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E10BE3-1F4B-4D00-8CD6-68D632289F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E10BE3-1F4B-4D00-8CD6-68D632289F07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
