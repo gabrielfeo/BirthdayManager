@@ -20,19 +20,23 @@ namespace Repository
         {
             base.Create(newPerson, out successful);
             _people.Add(newPerson);
+            successful = _people.Contains(newPerson);
         }
 
         public override void Update(Person changedPerson, out bool successful)
         {
             base.Update(changedPerson, out successful);
+            Delete(changedPerson.id, out bool removalSuccessful);
             _people.Add(changedPerson);
+            successful = removalSuccessful && _people.Contains(changedPerson);
         }
 
         public override void Delete(string personId, out bool successful)
         {
             base.Delete(personId, out successful);
             var person = Get(personId);
-            _people.Remove(person);
+            bool removalSuccessful = _people.Remove(person);
+            successful = removalSuccessful;
         }
 
     }
