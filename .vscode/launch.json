@@ -5,15 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "Launch Console app",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "buildConsoleApp",
             "program": "${workspaceFolder}/ConsoleApp/bin/Debug/netcoreapp2.1/ConsoleApp.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Test Repository proj.",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildRepositoryTests",
+            "program": "${workspaceFolder}/Repository.Tests/bin/Debug/netcoreapp2.1/Repository.Tests.dll",
+            "console": "internalConsole",
+            "stopAtEntry": true,
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
