@@ -17,9 +17,10 @@ namespace Repository
         }
 
         public abstract ICollection<Person> GetAll();
-        public abstract Person Get(string personId);
+        public abstract Person Get(Person person);
+        public abstract Person GetById(string personId);
 
-        public virtual void Create(Person newPerson, out bool successful)
+        public virtual void Insert(Person newPerson, out bool successful)
         {
             successful = false;
             var isValidPerson = _validator.Validate(newPerson);

@@ -27,14 +27,14 @@ namespace Repository.Tests
             var personId = Guid.NewGuid().ToString();
             var person = new Person(personId, "John Doe", birthday);
             var samePersonWithChangedName = new Person(personId, "Mary Doe", birthday);
-            repository.Create(person, out bool additionSuccessful);
+            repository.Insert(person, out bool additionSuccessful);
 
             // Act
             repository.Update(samePersonWithChangedName, out bool updateSuccessful);
 
             // Assert
             Assert.IsTrue(updateSuccessful);
-            Assert.IsTrue(repository.Get(personId).Name.Equals(samePersonWithChangedName.Name));
+            Assert.IsTrue(repository.GetById(personId).Name.Equals(samePersonWithChangedName.Name));
         }
 
         /* 
@@ -52,15 +52,15 @@ namespace Repository.Tests
             var changedPersonId = Guid.NewGuid().ToString();
             var originalPerson = new Person(originalPersonId, name, birthday);
             var changedPerson = new Person(changedPersonId, name, birthday);
-            repository.Create(originalPerson, out bool _);
+            repository.Insert(originalPerson, out bool _);
 
             // Act
             repository.Update(changedPerson, out bool updateSuccessful);
 
             // Assert
             Assert.IsFalse(updateSuccessful);
-            Assert.IsNull(repository.Get(changedPerson.id));
-            Assert.IsNotNull(repository.Get(originalPerson.id));
+            Assert.IsNull(repository.Get(changedPerson));
+            Assert.IsNotNull(repository.Get(originalPerson));
         }
   
     }
