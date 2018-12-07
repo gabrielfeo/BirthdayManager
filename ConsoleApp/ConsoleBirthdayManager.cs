@@ -7,12 +7,12 @@ using Repository;
 using ConsoleApp.Adapter;
 using ConsoleApp.Adapter.Command;
 using ConsoleApp.Adapter.PersonNs;
-using ConsoleApp.Resources;
 using ConsoleApp.Commands;
 using ConsoleApp.Commands.Exception;
 using ConsoleApp.Commands.List;
 using ConsoleApp.Commands.Services;
-using ICommand = System.Windows.Input.ICommand;
+using ConsoleApp.Extensions;
+using static ConsoleApp.Resources.Messages;
 
 namespace ConsoleApp
 {
@@ -38,28 +38,54 @@ namespace ConsoleApp
 
         public void Start()
         {
-            var people = _personRepository.GetAll();
+            PresentPeople();
+            PresentAllCommands();
+            var tries = 0;
+            ICommand command;
+            do
+            {
+                command = TryReadingCommand();
+                tries++;
+            } 
+            while (command == null && tries < 4);
 
+        }
+
+        private void PresentPeople()
+        {
+            var people = _personRepository.GetAll();
             if (people.Count == 0) WriteEmptyRepositoryMessage();
             else _personListAdapter.Write(people);
-            SkipLine();
+            _consoleTextWriter.SkipLine();
+        }
+        private void WriteEmptyRepositoryMessage() => _consoleTextWriter.WriteLine(ERROR_NO_PEOPLE_ADDED);
 
+        private void PresentAllCommands()
+        {
             _commandListAdapter.Write(_commands);
+        }
+
+        private void PresentAvailableCommands(ICommandList availableCommands)
+        {
+            _commandListAdapter.Write(availableCommands);
+        }
+
+        private ICommand TryReadingCommand()
+        {
             try
             {
                 var command = _commandReader.ReadCommand();
-                _consoleTextWriter.WriteLine($"{command}: {command.Description}");
+                _consoleTextWriter.WriteLine($"You have selected \"{command}\": {command.Description}");
+                return command;
             }
             catch (InvalidCommandException)
             {
-                _consoleTextWriter.WriteLine($"{nameof(InvalidCommandException)} thrown");
+                _consoleTextWriter.WriteLine(ERROR_INVALID_COMMAND);
+                return null;
             }
-            
         }
+        
 
-        private void SkipLine() => _consoleTextWriter.WriteLine();
-
-        private void WriteEmptyRepositoryMessage() => _consoleTextWriter.WriteLine(Messages.ERROR_NO_PEOPLE_ADDED);
 
     }
 }
