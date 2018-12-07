@@ -12,7 +12,7 @@ using ConsoleApp.Commands.Exception;
 using ConsoleApp.Commands.List;
 using ConsoleApp.Commands.Services;
 using ConsoleApp.Extensions;
-using static ConsoleApp.Resources.Messages;
+using ConsoleApp.Resources;
 
 namespace ConsoleApp
 {
@@ -38,6 +38,7 @@ namespace ConsoleApp
 
         public void Start()
         {
+            
             PresentPeople();
             PresentAllCommands();
             var tries = 0;
@@ -48,9 +49,9 @@ namespace ConsoleApp
                 tries++;
             } 
             while (command == null && tries < 4);
-
         }
 
+        
         private void PresentPeople()
         {
             var people = _personRepository.GetAll();
@@ -58,7 +59,11 @@ namespace ConsoleApp
             else _personListAdapter.Write(people);
             _consoleTextWriter.SkipLine();
         }
-        private void WriteEmptyRepositoryMessage() => _consoleTextWriter.WriteLine(ERROR_NO_PEOPLE_ADDED);
+
+        private void WriteEmptyRepositoryMessage()
+        {
+            _consoleTextWriter.WriteLine(Messages.Error.NoPeopleAdded);            
+        }
 
         private void PresentAllCommands()
         {
@@ -80,12 +85,10 @@ namespace ConsoleApp
             }
             catch (InvalidCommandException)
             {
-                _consoleTextWriter.WriteLine(ERROR_INVALID_COMMAND);
+                _consoleTextWriter.WriteLine(Messages.Error.InvalidCommand);
                 return null;
             }
         }
         
-
-
     }
 }
