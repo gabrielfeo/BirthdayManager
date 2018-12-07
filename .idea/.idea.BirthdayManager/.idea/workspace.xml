@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a82f7913-cd25-4e0b-896d-da8a81d15836" name="Default Changelist" comment="Created ConsoleApp initial project structure&#10;&#10;Other changes:&#10; - Added ConsoleApp to the solution file.">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Adapter/Person/PersonAdapter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Adapter/Person/PersonListAdapter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Commands/AddPersonCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Commands/Exception/InvalidCommandException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Commands/ICommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Commands/List/CommandList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Commands/List/ICommandList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Commands/Services/CommandParserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Commands/Services/CommandReaderService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleApp/Utils/TextWriterExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp/Adapter/IConsoleAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp/Adapter/IConsoleAdapter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp/Adapter/PeopleConsoleAdapter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp/Adapter/PersonConsoleAdapter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp/ConsoleBirthdayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp/ConsoleBirthdayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApp/Resources/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp/Resources/Messages.cs" afterDir="false" />
+    <list default="true" id="a82f7913-cd25-4e0b-896d-da8a81d15836" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BirthdayManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,33 +15,34 @@
     <session id="1235348978">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.56" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="204" />
+          <entry key="cs" value="215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="204" />
+          <entry key="C#" value="215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="2958" />
-          <entry key="txt" value="235" />
+          <entry key="cs" value="3023" />
+          <entry key="txt" value="493" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="2958" />
-          <entry key="PLAIN_TEXT" value="235" />
+          <entry key="C#" value="3023" />
+          <entry key="PLAIN_TEXT" value="493" />
         </counts>
       </usages-collector>
     </session>
@@ -69,19 +50,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ConsoleApp/ConsoleBirthdayManager.cs">
+        <entry file="file://$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="54" column="79" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
-              <folding>
-                <marker date="1544152022903" expanded="false" signature="6:440" ph="..." />
-                <marker date="1544152022903" expanded="true" signature="462:2333" ph="{...}" />
-                <marker date="1544152022903" expanded="true" signature="573:2331" ph="{...}" />
-                <marker date="1544152022903" expanded="true" signature="1150:1481" ph="{...}" />
-                <marker date="1544152022903" expanded="true" signature="1510:2139" ph="{...}" />
-                <marker date="1544152022903" expanded="true" signature="1782:1953" ph="{...}" />
-                <marker date="1544152022903" expanded="true" signature="1997:2116" ph="{...}" />
-              </folding>
+            <state relative-caret-position="384">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -111,7 +83,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ConsoleApp/Commands/Exception/InvalidCommandException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/ConsoleEntryPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/ConsoleBirthdayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/Commands/AddPersonCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/Commands/ICommand.cs" root0="FORCE_HIGHLIGHTING" />
@@ -119,7 +91,7 @@
     <setting file="file://$PROJECT_DIR$/Entities/obj/Debug/netstandard2.0/Entities.AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/Commands/List/CommandList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/Commands/Services/CommandReaderService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ConsoleApp/Utils/TextWriterExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleApp/Extensions/TextWriterExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entities.Tests/BirthdayTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/Commands/Services/CommandParserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/70696AE5-4B13-491F-A181-21DFDF1F88AA/fe/79d57a42/ICommand.cs" root0="SKIP_HIGHLIGHTING" />
@@ -169,9 +141,10 @@
         <option value="$PROJECT_DIR$/ConsoleApp/Adapter/Person/PersonListAdapter.cs" />
         <option value="$PROJECT_DIR$/ConsoleApp/Utils/SkipLine.cs" />
         <option value="$PROJECT_DIR$/ConsoleApp/Utils/TextWriterExtensions.cs" />
-        <option value="$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs" />
         <option value="$PROJECT_DIR$/ConsoleApp/Commands/Services/CommandReaderService.cs" />
         <option value="$PROJECT_DIR$/ConsoleApp/ConsoleBirthdayManager.cs" />
+        <option value="$PROJECT_DIR$/ConsoleApp/Extensions/TextWriterExtensions.cs" />
+        <option value="$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs" />
       </list>
     </option>
   </component>
@@ -223,7 +196,7 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="BirthdayManager" type="24d0babc:SolutionExplorerModelNode" />
               <item name="ConsoleApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Commands" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Resources" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -284,7 +257,8 @@
       <updated>1543802143590</updated>
       <workItem from="1543802151163" duration="802000" />
       <workItem from="1544060621129" duration="1879000" />
-      <workItem from="1544150213743" duration="1805000" />
+      <workItem from="1544150213743" duration="2637000" />
+      <workItem from="1544210121080" duration="576000" />
     </task>
     <task id="LOCAL-00001" summary="Simplified the Repository Factory">
       <created>1543802820735</created>
@@ -300,11 +274,46 @@
       <option name="project" value="LOCAL" />
       <updated>1543802907046</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Rider IDE files">
+      <created>1544152085848</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544152085848</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added Rider IDE files">
+      <created>1544152153301</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544152153301</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Rider IDE files">
+      <created>1544152164845</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1544152164846</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Wrote a command architecture draft&#10;&#10;A draft of a command architecture was written. The command classes&#10;themselves still need finishing.&#10;&#10;Other changes:&#10; - Refactored the IConsoleAdapter Person implementations.">
+      <created>1544152332458</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1544152332458</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Wrote a command architecture draft&#10;&#10;A draft of a command architecture was written. The command classes&#10;themselves still need finishing.&#10;&#10;Other changes:&#10; - Refactored the IConsoleAdapter Person implementations.">
+      <created>1544152522269</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1544152522269</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13263000" />
+    <option name="totallyTimeSpent" value="14671000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -316,28 +325,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="42" y="22" width="1238" height="778" extended-state="6" />
-    <editor active="true" />
+    <frame x="42" y="22" width="1238" height="778" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24232633" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Stacktrace" weight="0.32956153" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39886847" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
       <window_info anchor="bottom" id="NuGet" order="7" weight="0.32972136" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.43140027" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.32972136" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49919224" weight="0.32956153" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49919224" visible="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50080776" side_tool="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Build" order="14" sideWeight="0.49919224" weight="0.32956153" />
+      <window_info anchor="bottom" id="Stacktrace" order="15" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -349,13 +357,54 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Simplified the Repository Factory" />
     <MESSAGE value="Created ConsoleApp initial project structure&#10;&#10;Other changes:&#10; - Added ConsoleApp to the solution file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created ConsoleApp initial project structure&#10;&#10;Other changes:&#10; - Added ConsoleApp to the solution file." />
+    <MESSAGE value="Added Rider IDE files" />
+    <MESSAGE value="Wrote a command architecture draft&#10;&#10;A draft of a command architecture was written. The command classes&#10;themselves still need finishing.&#10;&#10;Other changes:&#10; - Refactored the IConsoleAdapter Person implementations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrote a command architecture draft&#10;&#10;A draft of a command architecture was written. The command classes&#10;themselves still need finishing.&#10;&#10;Other changes:&#10; - Refactored the IConsoleAdapter Person implementations." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -405,9 +454,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Repository/RepositoryFactory.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConsoleApp/ConsoleEntryPoint.cs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Entities.Tests/BirthdayTests.cs">
@@ -468,13 +514,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConsoleApp/Commands/Services/CommandPresenterService.cs" />
-    <entry file="file://$PROJECT_DIR$/ConsoleApp/Resources/Messages.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ConsoleApp/Adapter/IConsoleAdapter.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -489,40 +528,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConsoleApp/Utils/TextWriterExtensions.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="82" lean-forward="true" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ConsoleApp/Adapter/Person/PersonListAdapter.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-          <folding>
-            <marker date="1544148620972" expanded="false" signature="6:66" ph="..." />
-            <marker date="1544148620972" expanded="true" signature="105:659" ph="{...}" />
-            <marker date="1544148620972" expanded="true" signature="198:657" ph="{...}" />
-            <marker date="1544148620972" expanded="true" signature="331:650" ph="{...}" />
-            <marker date="1544148620972" expanded="true" signature="407:640" ph="{...}" />
-            <marker date="1544148620972" expanded="true" signature="487:626" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding>
-            <marker date="1544150817741" expanded="false" signature="6:143" ph="..." />
-            <marker date="1544150817741" expanded="true" signature="181:828" ph="{...}" />
-            <marker date="1544150817741" expanded="true" signature="253:826" ph="{...}" />
-            <marker date="1544150817741" expanded="true" signature="403:453" ph="{...}" />
-            <marker date="1544150817741" expanded="true" signature="503:820" ph="{...}" />
-            <marker date="1544150817741" expanded="true" signature="559:721" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -532,7 +541,6 @@
           <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
           <folding>
             <marker date="1544146747917" expanded="false" signature="6:135" ph="..." />
-            <marker date="1544146747917" expanded="true" signature="175:965" ph="{...}" />
             <marker date="1544146747917" expanded="true" signature="217:963" ph="{...}" />
             <marker date="1544146747917" expanded="true" signature="334:387" ph="{...}" />
             <marker date="1544146747917" expanded="true" signature="444:957" ph="{...}" />
@@ -548,7 +556,6 @@
           <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
           <folding>
             <marker date="1544146288638" expanded="false" signature="6:171" ph="..." />
-            <marker date="1544146288638" expanded="true" signature="211:733" ph="{...}" />
             <marker date="1544146288638" expanded="true" signature="253:731" ph="{...}" />
             <marker date="1544146288638" expanded="true" signature="445:525" ph="{...}" />
             <marker date="1544146288638" expanded="true" signature="564:716" ph="{...}" />
@@ -556,10 +563,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ConsoleApp/Extensions/TextWriterExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConsoleApp/ConsoleEntryPoint.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1543800769822" expanded="false" signature="6:73" ph="..." />
+            <marker date="1543800769822" expanded="true" signature="95:263" ph="{...}" />
+            <marker date="1543800769822" expanded="true" signature="132:261" ph="{...}" />
+            <marker date="1543800769822" expanded="true" signature="185:255" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConsoleApp/Resources/Messages.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ConsoleApp/ConsoleBirthdayManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="54" column="79" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
+        <state relative-caret-position="171">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
           <folding>
             <marker date="1544152022903" expanded="false" signature="6:440" ph="..." />
             <marker date="1544152022903" expanded="true" signature="462:2333" ph="{...}" />
@@ -569,6 +602,13 @@
             <marker date="1544152022903" expanded="true" signature="1782:1953" ph="{...}" />
             <marker date="1544152022903" expanded="true" signature="1997:2116" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConsoleApp/Adapter/Command/CommandListAdapter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
