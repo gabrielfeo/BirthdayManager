@@ -30,8 +30,8 @@ namespace Validator
 
         private bool IsBirthdayValid()
         {
-            string allegedBirthdayDate = $"{DateTime.Today.Year}-{_person.Birthday.Month}-{_person.Birthday.Day}";
-            bool isValidDate = DateTime.TryParse(_person.id, out DateTime _);
+            string allegedBirthdayDate = $"{DateTime.Today.Year}/0{_person.Birthday.Month}/0{_person.Birthday.Day}";
+            bool isValidDate = DateTime.TryParse(allegedBirthdayDate, out DateTime _);
             return isValidDate;
         }
 
