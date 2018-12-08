@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>  
-    <LangVersion>7.1</LangVersion> 
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>7.1</LangVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="../Entities/Entities.csproj" />
-      <ProjectReference Include="../Validator/Validator.csproj"/>
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="../Entities/Entities.csproj"/>
+        <ProjectReference Include="../Validator/Validator.csproj"/>
+    </ItemGroup>
 
 </Project>
