@@ -26,21 +26,21 @@ namespace Repository
         protected bool CanInsert(Person person)
         {
             var isValidPerson = Validator.Validate(person);
-            var isImpostor = IsKnownPerson(person);
-            return (!isValidPerson || isImpostor);
+            var isNotKnownPerson = !IsKnownPerson(person);
+            return (isValidPerson && isNotKnownPerson);
         }
 
         protected bool CanUpdate(Person changedPerson)
         {
             var isValidPerson = Validator.Validate(changedPerson);
-            var isKnown = IsKnownPerson(changedPerson);
-            return (!isValidPerson || !isKnown);
+            var isKnownPerson = IsKnownPerson(changedPerson);
+            return (isValidPerson && isKnownPerson);
         }
 
         protected bool CanDelete(string personId)
         {
-            var isKnown = IsKnownPersonId(personId);
-            return !isKnown;
+            var isKnownPerson = IsKnownPersonId(personId);
+            return isKnownPerson;
         }
 
         private bool IsKnownPerson(Person person)
