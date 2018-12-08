@@ -12,6 +12,12 @@ namespace Entities
             this.Month = month;
             this.Day = day;
         }
+
+        public Birthday(DateTime date)
+        {
+            this.Month = date.Month;
+            this.Day = date.Day;
+        }
 		
 		public DateTime GetNextDate()
 		{

@@ -20,8 +20,8 @@ namespace ConsoleApp.Commands
         public void Execute()
         {
             CommandVerifier.Verify(this);
-            var name = ReadPersonName();
-            var birthday = ReadPersonBirthday();
+            var name = GetPersonName();
+            var birthday = GetPersonBirthday();
             var person = new Person(GenerateGuid(), name, birthday);
             Repository.Insert(person, out bool successful);
             if (!successful) Writer.WriteLine(Messages.Error.GenericError);
@@ -29,14 +29,18 @@ namespace ConsoleApp.Commands
 
         private string GenerateGuid() => Guid.NewGuid().ToString();
 
-        private string ReadPersonName()
+        private string GetPersonName()
         {
-            throw new NotImplementedException();
+            Writer.Write("Name: ");
+            return Reader.ReadLine();
         }
 
-        private Birthday ReadPersonBirthday()
+        private Birthday GetPersonBirthday()
         {
-            throw new NotImplementedException();
+            Writer.Write("Birthday: ");
+            var birthdayString = Reader.ReadLine();
+            var successful = DateTime.TryParse(birthdayString, out var birthday);
+            return successful ? new Birthday(birthday) : new Birthday();
         }
     }
 }
