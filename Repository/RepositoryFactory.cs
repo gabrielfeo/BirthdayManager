@@ -12,7 +12,7 @@ namespace Repository
         {
             if (typeof(TData) == typeof(Person))
             {
-                var validator = new PersonValidator();
+                var validator = new ValidatorFactory().NewValidator<Person>();
                 return new MemoryPersonRepository(validator) as IRepository<TData>;
             }
 
