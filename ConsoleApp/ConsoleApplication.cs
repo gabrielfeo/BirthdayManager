@@ -3,6 +3,7 @@ using Entities;
 using Repository;
 using ConsoleApp.Adapter;
 using ConsoleApp.Commands;
+using ConsoleApp.Resources;
 
 namespace ConsoleApp
 {
@@ -13,8 +14,7 @@ namespace ConsoleApp
 
         public static void Main(string[] args)
         {
-            BirthdayManager = new ConsoleBirthdayManager();
-
+            BirthdayManager = new ConsoleBirthdayManager(Console.Out, Console.In);
             BirthdayManager.PresentPeople();
             BirthdayManager.PresentAllCommands();
             BirthdayManager.TryReadingCommand(maxTries: 4);

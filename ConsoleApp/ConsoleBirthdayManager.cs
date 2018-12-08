@@ -14,29 +14,40 @@ using ConsoleApp.Commands.Services;
 using ConsoleApp.Extensions;
 using ConsoleApp.Resources;
 
-// ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable InconsistentNaming
 // ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable PrivateFieldCanBeConvertedToLocalVariable
 
 namespace ConsoleApp
 {
     public class ConsoleBirthdayManager
     {
-        internal TextWriter ConsoleTextWriter = Console.Out;
-        internal TextReader ConsoleTextReader = Console.In;
-        internal IRepository<Person> PersonRepository = new RepositoryFactory().NewPersonRepository();
-        internal ICommandList AllCommands = new CommandList();
-        internal ICommandList AvailableCommands = new CommandList();
-        internal IConsoleAdapter<IEnumerable<Person>> PersonListAdapter;
-        internal IConsoleAdapter<ICommandList> CommandListAdapter;
-        internal CommandReaderService CommandReader;
-        internal CommandParserService CommandParser;
+        private IRepository<Person> PersonRepository;
+        private IConsoleAdapter<IEnumerable<Person>> PersonListAdapter;
+        private IConsoleAdapter<ICommandList> CommandListAdapter;
+        private CommandReaderService CommandReader;
+        private CommandParserService CommandParser;
 
-        public ConsoleBirthdayManager()
+        public TextWriter ConsoleTextWriter { get; set; }
+        public TextReader ConsoleTextReader { get; set; }
+        public ICommandList AllCommands { get; private set; }
+        public ICommandList AvailableCommands { get; set; }
+
+        public ConsoleBirthdayManager(TextWriter consoleTextWriter, TextReader consoleTextReader)
         {
-            PersonListAdapter = new PersonListAdapter(ConsoleTextWriter);
+            this.ConsoleTextWriter = consoleTextWriter;
+            this.ConsoleTextReader = consoleTextReader;
+
+            AllCommands = new CommandList();
+            AvailableCommands = AllCommands;
             CommandListAdapter = new CommandListAdapter(ConsoleTextWriter);
             CommandParser = new CommandParserService(AllCommands);
             CommandReader = new CommandReaderService(ConsoleTextReader, CommandParser);
+
+            PersonRepository = new RepositoryFactory().NewPersonRepository();
+            PersonListAdapter = new PersonListAdapter(ConsoleTextWriter);
         }
 
         public void PresentPeople()
