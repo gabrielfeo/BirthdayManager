@@ -11,10 +11,13 @@ namespace Repository
         private ICollection<Person> _people = new HashSet<Person>();
 
         internal MemoryPersonRepository(IValidator<Person> personValidator)
-        : base(personValidator) { }
+            : base(personValidator)
+        {
+        }
 
         public override ICollection<Person> GetAll() => _people;
         public override Person Get(Person person) => GetById(person.id);
+
         public override Person GetById(string personId)
         {
             return _people.FirstOrDefault(person => person.HasId(personId));
@@ -22,25 +25,36 @@ namespace Repository
 
         public override void Insert(Person newPerson, out bool successful)
         {
-            base.Insert(newPerson, out successful);
-            _people.Add(newPerson);
-            successful = _people.Contains(newPerson);
+            if (CanInsert(newPerson))
+            {
+                _people.Add(newPerson);
+                successful = _people.Contains(newPerson);
+            }
+            else
+            {
+                successful = false;
+            }
         }
 
         public override void Update(Person changedPerson, out bool successful)
         {
-            base.Update(changedPerson, out successful);
-            Delete(changedPerson.id, out bool removalSuccessful);
-            if (removalSuccessful) _people.Add(changedPerson);
-            successful = removalSuccessful && _people.Contains(changedPerson);
+            if (CanUpdate(changedPerson))
+            {
+                Delete(changedPerson.id, out bool removalSuccessful);
+                if (removalSuccessful) _people.Add(changedPerson);
+                successful = removalSuccessful && _people.Contains(changedPerson);
+            }
+            else
+            {
+                successful = false;
+            }
         }
 
         public override void Delete(string personId, out bool successful)
         {
-            base.Delete(personId, out successful);
-            var person = GetById(personId);
-            if (person != null)
+            if (CanDelete(personId))
             {
+                var person = GetById(personId);
                 bool removalSuccessful = _people.Remove(person);
                 successful = removalSuccessful;
             }
@@ -49,6 +63,5 @@ namespace Repository
                 successful = false;
             }
         }
-
     }
 }

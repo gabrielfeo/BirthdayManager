@@ -8,37 +8,39 @@ namespace Repository
 {
     internal abstract class PersonRepository : IRepository<Person>
     {
-
-        protected IValidator<Person> _validator;
+        protected IValidator<Person> Validator;
 
         protected PersonRepository(IValidator<Person> personValidator)
         {
-            _validator = personValidator;
+            Validator = personValidator;
         }
 
         public abstract ICollection<Person> GetAll();
         public abstract Person Get(Person person);
         public abstract Person GetById(string personId);
 
-        public virtual void Insert(Person newPerson, out bool successful)
+        public abstract void Insert(Person newPerson, out bool successful);
+        public abstract void Update(Person changedPerson, out bool successful);
+        public abstract void Delete(string personId, out bool successful);
+
+        protected bool CanInsert(Person person)
         {
-            successful = false;
-            var isValidPerson = _validator.Validate(newPerson);
-            var isImpostor = IsKnownPerson(newPerson);
-            if (!isValidPerson || isImpostor) return;
+            var isValidPerson = Validator.Validate(person);
+            var isImpostor = IsKnownPerson(person);
+            return (!isValidPerson || isImpostor);
         }
-        public virtual void Update(Person changedPerson, out bool successful)
+
+        protected bool CanUpdate(Person changedPerson)
         {
-            successful = false;
-            var isValidPerson = _validator.Validate(changedPerson);
+            var isValidPerson = Validator.Validate(changedPerson);
             var isKnown = IsKnownPerson(changedPerson);
-            if (!isValidPerson || !isKnown) return;
+            return (!isValidPerson || !isKnown);
         }
-        public virtual void Delete(string personId, out bool successful)
+
+        protected bool CanDelete(string personId)
         {
-            successful = false;
             var isKnown = IsKnownPersonId(personId);
-            if (!isKnown) return;
+            return !isKnown;
         }
 
         private bool IsKnownPerson(Person person)
@@ -50,6 +52,5 @@ namespace Repository
         {
             return GetAll().AsEnumerable().Any(personInRepository => personInRepository.HasId(id));
         }
-
     }
 }
