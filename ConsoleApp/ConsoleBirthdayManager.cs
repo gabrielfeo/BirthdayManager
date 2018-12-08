@@ -30,41 +30,46 @@ namespace ConsoleApp
         private CommandReaderService CommandReader;
         private CommandParserService CommandParser;
 
-        public TextWriter ConsoleTextWriter { get; set; }
-        public TextReader ConsoleTextReader { get; set; }
+        public TextWriter TextWriter { get; set; }
+        public TextWriter ErrorWriter { get; set; }
+        public TextReader TextReader { get; set; }
         public ICommandList AllCommands { get; private set; }
         public ICommandList AvailableCommands { get; set; }
 
-        public ConsoleBirthdayManager(TextWriter consoleTextWriter, TextReader consoleTextReader)
+        public ConsoleBirthdayManager(TextWriter consoleTextWriter, TextReader consoleTextReader,
+                                      TextWriter errorWriter = null)
         {
-            this.ConsoleTextWriter = consoleTextWriter;
-            this.ConsoleTextReader = consoleTextReader;
+            this.TextWriter = consoleTextWriter;
+            this.TextReader = consoleTextReader;
+            this.ErrorWriter = errorWriter ?? TextWriter;
 
             AllCommands = new CommandList();
             AvailableCommands = AllCommands;
-            CommandListAdapter = new CommandListAdapter(ConsoleTextWriter);
+            CommandListAdapter = new CommandListAdapter(TextWriter);
             CommandParser = new CommandParserService(AllCommands);
-            CommandReader = new CommandReaderService(ConsoleTextReader, CommandParser);
+            CommandReader = new CommandReaderService(TextReader, CommandParser);
 
             PersonRepository = new RepositoryFactory().NewPersonRepository();
-            PersonListAdapter = new PersonListAdapter(ConsoleTextWriter);
+            PersonListAdapter = new PersonListAdapter(TextWriter, ErrorWriter);
         }
 
         public void PresentPeople()
         {
             var people = PersonRepository.GetAll();
             PersonListAdapter.Write(people);
-            ConsoleTextWriter.SkipLine();
+            TextWriter.SkipLine();
         }
 
         public void PresentAllCommands()
         {
             CommandListAdapter.Write(AllCommands);
+            TextWriter.SkipLine();
         }
 
         public void PresentAvailableCommands()
         {
             CommandListAdapter.Write(AvailableCommands);
+            TextWriter.SkipLine();
         }
 
         public ICommand TryReadingCommand(int maxTries)
@@ -84,12 +89,12 @@ namespace ConsoleApp
             try
             {
                 var command = CommandReader.ReadCommand();
-                ConsoleTextWriter.WriteLine($"You have selected \"{command}\": {command.Description}");
+                TextWriter.WriteLine($"You have selected \"{command}\": {command.Description}");
                 return command;
             }
             catch (InvalidCommandException)
             {
-                ConsoleTextWriter.WriteLine(Messages.Error.InvalidCommand);
+                ErrorWriter.WriteLine(Messages.Error.InvalidCommand);
                 return null;
             }
         }

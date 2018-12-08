@@ -9,7 +9,8 @@ namespace ConsoleApp.Adapter.PersonNs
 {
     internal class PersonListAdapter : PersonAdapter, IConsoleAdapter<IEnumerable<Person>>
     {
-        public PersonListAdapter(TextWriter writer) : base(writer)
+        public PersonListAdapter(TextWriter writer, TextWriter errorWriter = null)
+            : base(writer, errorWriter)
         {
         }
 
@@ -25,7 +26,6 @@ namespace ConsoleApp.Adapter.PersonNs
                 {
                     EnumeratePeople(peopleEnumerator);
                 }
-                Writer.SkipLine();
             }
         }
 
@@ -38,7 +38,7 @@ namespace ConsoleApp.Adapter.PersonNs
 
         private void WriteEmptyRepositoryMessage()
         {
-            Writer.WriteLine(Messages.Error.NoPeopleAdded);
+            ErrorWriter.WriteLine(Messages.Error.NoPeopleAdded);
         }
 
         private void EnumeratePeople(IEnumerator<Person> peopleEnumerator)

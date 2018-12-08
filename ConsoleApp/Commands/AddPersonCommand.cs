@@ -8,23 +8,19 @@ using Repository;
 
 namespace ConsoleApp.Commands
 {
-    internal class AddPersonCommand : ICommand
+    internal class AddPersonCommand : Command
     {
-        public string Name => "Add Birthday";
-        public string Description => "Add somebody\'s birthday to the Birthday Manager";
+        public override string Name => "Add Birthday";
+        public override string Description => "Add somebody\'s birthday to the Birthday Manager";
 
-        public IRepository<Person> Repository { get; set; }
-        public TextWriter Writer { get; set; }
-        public TextReader Reader { get; set; }
-
-        public void Execute()
+        public override void Execute()
         {
             CommandVerifier.Verify(this);
             var name = GetPersonName();
             var birthday = GetPersonBirthday();
             var person = new Person(GenerateGuid(), name, birthday);
             Repository.Insert(person, out bool successful);
-            if (!successful) Writer.WriteLine(Messages.Error.GenericError);
+            if (!successful) ErrorWriter.WriteLine(Messages.Error.GenericError);
         }
 
         private string GenerateGuid() => Guid.NewGuid().ToString();

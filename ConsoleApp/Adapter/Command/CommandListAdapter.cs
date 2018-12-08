@@ -8,12 +8,11 @@ namespace ConsoleApp.Adapter.Command
 {
     internal class CommandListAdapter : IConsoleAdapter<ICommandList>
     {
-        private readonly TextWriter _writer;
-        public TextWriter Writer => _writer;
+        public TextWriter Writer { get; }
 
         public CommandListAdapter(TextWriter writer)
         {
-            _writer = writer;
+            Writer = writer;
         }
 
         public void Write(ICommandList commands)
@@ -23,7 +22,6 @@ namespace ConsoleApp.Adapter.Command
                 var commandKey = commands.IndexOf(command);
                 Writer.WriteLine($"{commandKey}. {command.Description}");
             }
-            Writer.SkipLine();
         }
     }
 }

@@ -4,13 +4,13 @@ namespace ConsoleApp.Adapter.PersonNs
 {
     internal class PersonAdapter : IConsoleAdapter<Entities.Person>
     {
+        public TextWriter Writer { get; }
+        protected readonly TextWriter ErrorWriter;
 
-        private readonly TextWriter _writer;
-        public TextWriter Writer => _writer;
-
-        public PersonAdapter(TextWriter writer)
+        public PersonAdapter(TextWriter writer, TextWriter errorWriter = null)
         {
-            _writer = writer;
+            Writer = writer;
+            ErrorWriter = errorWriter ?? writer;
         }
 
         public void Write(Entities.Person person)
