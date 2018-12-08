@@ -49,7 +49,7 @@ namespace ConsoleApp
             CommandParser = new CommandParserService(AllCommands);
             CommandReader = new CommandReaderService(TextReader, CommandParser);
 
-            PersonRepository = new RepositoryFactory().NewPersonRepository();
+            PersonRepository = new RepositoryFactory().NewRepository<Person>();
             PersonListAdapter = new PersonListAdapter(TextWriter, ErrorWriter);
         }
 
