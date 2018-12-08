@@ -42,3 +42,7 @@ Thumbs.db
 
 # Rider IDE
 .idea/.idea.BirthdayManager/.idea/workspace.xml
+.idea/.idea.BirthdayManager/.idea/contentModel.xml
+
+# Markdown Navigator IntelliJ plugin
+.idea/.idea.BirthdayManager/.idea/markdown-navigator/

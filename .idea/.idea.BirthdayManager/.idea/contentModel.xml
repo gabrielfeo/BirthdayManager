@@ -7,6 +7,7 @@
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_BirthdayManager.809223025.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="BirthdayManager.sln" t="IncludeFlat" />
       <e p="ConsoleApp" t="IncludeRecursive">
@@ -23,6 +24,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Commands" t="Include">
           <e p="AddPersonCommand.cs" t="Include" />
+          <e p="Command.cs" t="Include" />
           <e p="CommandVerifier.cs" t="Include" />
           <e p="Exception" t="Include">
             <e p="CommandNotConfiguredException.cs" t="Include" />
@@ -102,6 +104,7 @@
         <e p="Validator" t="Include">
           <e p="IValidator.cs" t="Include" />
           <e p="PersonValidator.cs" t="Include" />
+          <e p="ValidatorFactory.cs" t="Include" />
         </e>
       </e>
       <e p="Repository.Tests" t="IncludeRecursive">
