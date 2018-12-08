@@ -23,7 +23,9 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Commands" t="Include">
           <e p="AddPersonCommand.cs" t="Include" />
+          <e p="CommandVerifier.cs" t="Include" />
           <e p="Exception" t="Include">
+            <e p="CommandNotConfiguredException.cs" t="Include" />
             <e p="InvalidCommandException.cs" t="Include" />
           </e>
           <e p="ICommand.cs" t="Include" />

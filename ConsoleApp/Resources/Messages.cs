@@ -20,6 +20,9 @@ namespace ConsoleApp.Resources
 
             public const string NoPeopleAdded =
                 "There's no one here yet. Please add somebody's birthday to continue.";
+
+            public const string GenericError =
+                "An error has occurred. Please try again.";
         }
     }
 }
