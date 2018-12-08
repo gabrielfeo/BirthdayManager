@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Entities;
-using Repository.ValidatorNs;
+using Validator;
 
 namespace Repository
 {

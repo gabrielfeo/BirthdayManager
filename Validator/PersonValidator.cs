@@ -1,7 +1,7 @@
 using System;
 using Entities;
 
-namespace Repository.ValidatorNs
+namespace Validator
 {
     internal class PersonValidator : IValidator<Person>
     {

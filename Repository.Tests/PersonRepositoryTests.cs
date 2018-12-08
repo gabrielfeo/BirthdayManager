@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Entities;
 using Repository;
-using Repository.ValidatorNs;
+using Validator;
 
 namespace Repository.Tests
 {

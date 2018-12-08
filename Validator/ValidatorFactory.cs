@@ -1,9 +1,9 @@
 using System;
 using Entities;
 
-namespace Repository.ValidatorNs
+namespace Validator
 {
-    internal class ValidatorFactory
+    public class ValidatorFactory
     {
         public IValidator<TData> NewValidator<TData>()
         {
