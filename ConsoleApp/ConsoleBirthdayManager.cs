@@ -13,6 +13,7 @@ using ConsoleApp.Commands.List;
 using ConsoleApp.Commands.Services;
 using ConsoleApp.Extensions;
 using ConsoleApp.Resources;
+
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -23,7 +24,8 @@ namespace ConsoleApp
         internal TextWriter ConsoleTextWriter = Console.Out;
         internal TextReader ConsoleTextReader = Console.In;
         internal IRepository<Person> PersonRepository = new RepositoryFactory().NewPersonRepository();
-        internal ICommandList Commands = new CommandList();
+        internal ICommandList AllCommands = new CommandList();
+        internal ICommandList AvailableCommands = new CommandList();
         internal IConsoleAdapter<IEnumerable<Person>> PersonListAdapter;
         internal IConsoleAdapter<ICommandList> CommandListAdapter;
         internal CommandReaderService CommandReader;
@@ -33,31 +35,25 @@ namespace ConsoleApp
         {
             PersonListAdapter = new PersonListAdapter(ConsoleTextWriter);
             CommandListAdapter = new CommandListAdapter(ConsoleTextWriter);
-            CommandParser = new CommandParserService(Commands);
+            CommandParser = new CommandParserService(AllCommands);
             CommandReader = new CommandReaderService(ConsoleTextReader, CommandParser);
         }
 
         public void PresentPeople()
         {
             var people = PersonRepository.GetAll();
-            if (people.Count == 0) WriteEmptyRepositoryMessage();
-            else PersonListAdapter.Write(people);
+            PersonListAdapter.Write(people);
             ConsoleTextWriter.SkipLine();
-        }
-
-        public void WriteEmptyRepositoryMessage()
-        {
-            ConsoleTextWriter.WriteLine(Messages.Error.NoPeopleAdded);
         }
 
         public void PresentAllCommands()
         {
-            CommandListAdapter.Write(Commands);
+            CommandListAdapter.Write(AllCommands);
         }
 
-        public void PresentAvailableCommands(ICommandList availableCommands)
+        public void PresentAvailableCommands()
         {
-            CommandListAdapter.Write(availableCommands);
+            CommandListAdapter.Write(AvailableCommands);
         }
 
         public ICommand TryReadingCommand(int maxTries)
