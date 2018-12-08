@@ -1,8 +1,9 @@
 using System.IO;
+using Entities;
 
 namespace ConsoleApp.Adapter.PersonNs
 {
-    internal class PersonAdapter : IConsoleAdapter<Entities.Person>
+    internal class PersonAdapter : IConsoleAdapter<Person>
     {
         public TextWriter Writer { get; }
         protected readonly TextWriter ErrorWriter;
@@ -13,16 +14,15 @@ namespace ConsoleApp.Adapter.PersonNs
             ErrorWriter = errorWriter ?? writer;
         }
 
-        public void Write(Entities.Person person)
+        public void Write(Person person)
         {
             var personLine = GetFormatted(person);
             Writer.WriteLine(personLine);
         }
 
-        private string GetFormatted(Entities.Person person)
+        private string GetFormatted(Person person)
         {
-            return $"{person.Name}  -  {person.Birthday.GetNextDate():2018/12/31}";
+            return $"{person.Name}  -  {person.Birthday.GetNextDate():yyyy MMMM dd}";
         }
-
     }
 }
