@@ -7,16 +7,21 @@ namespace ConsoleApp.Resources
         public const string AppIntro =
             "Welcome to the Birthday Manager!";
 
+
         public struct Instruction
         {
             public const string ChooseCommand =
                 "Please type a command number to begin.";
         }
 
+
         public struct Error
         {
             public const string InvalidCommand =
                 "That command is not available. Please try again.";
+
+            public const string NoCommandToExecute =
+                "There is no command to execute.";
 
             public const string NoPeopleAdded =
                 "There's no one here yet. Please add somebody's birthday to continue.";

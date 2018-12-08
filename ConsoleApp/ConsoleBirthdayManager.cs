@@ -52,6 +52,11 @@ namespace ConsoleApp
             PersonRepository = new RepositoryFactory().NewRepository<Person>();
             PersonListAdapter = new PersonListAdapter(TextWriter, ErrorWriter);
         }
+        
+        public void PresentIntro()
+        {
+            TextWriter.WriteLine(Messages.AppIntro);
+        }
 
         public void PresentPeople()
         {
@@ -72,24 +77,24 @@ namespace ConsoleApp
             TextWriter.SkipLine();
         }
 
-        public ICommand TryReadingCommand(int maxTries)
+        public ICommand AskForCommand(int maxTries)
         {
             var tries = 0;
             ICommand command;
             do
             {
-                command = TryReadingCommand();
+                command = AskForCommand();
                 tries++;
             } while (command == null && tries < maxTries);
             return command;
         }
 
-        public ICommand TryReadingCommand()
+        public ICommand AskForCommand()
         {
             try
             {
                 var command = CommandReader.ReadCommand();
-                TextWriter.WriteLine($"You have selected \"{command}\": {command.Description}");
+                TextWriter.WriteLine($"You have selected \"{command.Name}\": {command.Description}");
                 return command;
             }
             catch (InvalidCommandException)
@@ -97,6 +102,26 @@ namespace ConsoleApp
                 ErrorWriter.WriteLine(Messages.Error.InvalidCommand);
                 return null;
             }
+        }
+
+        public void Execute(ICommand command)
+        {
+            if (command != null)
+            {
+                Setup(command);
+                command.Execute();
+            }
+            else
+            {
+                ErrorWriter.WriteLine(Messages.Error.NoCommandToExecute);
+            }
+        }
+
+        private void Setup(ICommand command)
+        {
+            command.Writer = TextWriter;
+            command.Reader = TextReader;
+            command.Repository = PersonRepository;
         }
     }
 }

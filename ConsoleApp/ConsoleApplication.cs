@@ -15,9 +15,22 @@ namespace ConsoleApp
         public static void Main(string[] args)
         {
             BirthdayManager = new ConsoleBirthdayManager(Console.Out, Console.In);
+
+            BirthdayManager.PresentIntro();
             BirthdayManager.PresentPeople();
-            BirthdayManager.PresentAllCommands();
-            BirthdayManager.TryReadingCommand(maxTries: 4);
+            LoopIndefinitely(action: PresentCommandsAndAskForAction);
+        }
+
+        private static void LoopIndefinitely(Action action)
+        {
+            while (true) action();
+        }
+
+        private static void PresentCommandsAndAskForAction()
+        {
+            BirthdayManager.PresentAvailableCommands();
+            var command = BirthdayManager.AskForCommand(maxTries: 4);
+            BirthdayManager.Execute(command);
         }
     }
 }
