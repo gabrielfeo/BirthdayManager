@@ -1,4 +1,5 @@
 using System.IO;
+using ConsoleApp.Commands.Exceptions;
 using Entities;
 using Repository;
 
@@ -21,5 +22,15 @@ namespace ConsoleApp.Commands
         }
 
         public abstract void Execute();
+
+        protected void VerifyProperties()
+        {
+            if (Repository is null)
+                throw new CommandNotConfiguredException("Repository not configured in Command");
+            if (Writer is null)
+                throw new CommandNotConfiguredException("Writer not configured in Command");
+            if (Reader is null)
+                throw new CommandNotConfiguredException("Reader not configured in Command");
+        }
     }
 }

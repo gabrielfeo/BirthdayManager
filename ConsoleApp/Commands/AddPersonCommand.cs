@@ -15,7 +15,7 @@ namespace ConsoleApp.Commands
 
         public override void Execute()
         {
-            CommandVerifier.Verify(this);
+            VerifyProperties();
             var name = GetPersonName();
             var birthday = GetPersonBirthday();
             var person = new Person(GenerateGuid(), name, birthday);

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ConsoleApp.Commands.Exception;
+using ConsoleApp.Commands.Exceptions;
 using ConsoleApp.Commands.List;
 
 namespace ConsoleApp.Commands.Services

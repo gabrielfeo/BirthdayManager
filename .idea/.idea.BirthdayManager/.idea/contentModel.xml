@@ -25,8 +25,7 @@
         <e p="Commands" t="Include">
           <e p="AddPersonCommand.cs" t="Include" />
           <e p="Command.cs" t="Include" />
-          <e p="CommandVerifier.cs" t="Include" />
-          <e p="Exception" t="Include">
+          <e p="Exceptions" t="Include">
             <e p="CommandNotConfiguredException.cs" t="Include" />
             <e p="InvalidCommandException.cs" t="Include" />
           </e>

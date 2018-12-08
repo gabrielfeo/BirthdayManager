@@ -8,7 +8,7 @@ using ConsoleApp.Adapter;
 using ConsoleApp.Adapter.Command;
 using ConsoleApp.Adapter.PersonNs;
 using ConsoleApp.Commands;
-using ConsoleApp.Commands.Exception;
+using ConsoleApp.Commands.Exceptions;
 using ConsoleApp.Commands.List;
 using ConsoleApp.Commands.Services;
 using ConsoleApp.Extensions;
@@ -52,7 +52,7 @@ namespace ConsoleApp
             PersonRepository = new RepositoryFactory().NewRepository<Person>();
             PersonListAdapter = new PersonListAdapter(TextWriter, ErrorWriter);
         }
-        
+
         public void PresentIntro()
         {
             TextWriter.WriteLine(Messages.AppIntro);
@@ -108,7 +108,7 @@ namespace ConsoleApp
         {
             if (command != null)
             {
-                Setup(command);
+                SetUp(command);
                 command.Execute();
             }
             else
@@ -117,7 +117,7 @@ namespace ConsoleApp
             }
         }
 
-        private void Setup(ICommand command)
+        private void SetUp(ICommand command)
         {
             command.Writer = TextWriter;
             command.Reader = TextReader;
