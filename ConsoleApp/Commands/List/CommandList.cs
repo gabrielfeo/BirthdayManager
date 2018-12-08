@@ -9,7 +9,8 @@ namespace ConsoleApp.Commands.List
         private static IList<ICommand> _commands = new List<ICommand>
         {
             new AddPersonCommand(),
-            new ListPeopleCommand()
+            new ListPeopleCommand(),
+            new ExitCommand()
         };
 
         public ICommand this[int index] => _commands[index];

@@ -19,6 +19,8 @@ namespace ConsoleApp.Resources
         {
             public const string ListingPeople =
                 "These are all the upcoming birthdays, starting from the closest one:";
+            public const string Exiting =
+                "Bye!";
         }
 
 
