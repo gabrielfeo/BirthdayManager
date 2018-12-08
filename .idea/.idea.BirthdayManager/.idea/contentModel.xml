@@ -37,8 +37,8 @@
           </e>
         </e>
         <e p="ConsoleApp.csproj" t="IncludeRecursive" />
+        <e p="ConsoleApplication.cs" t="Include" />
         <e p="ConsoleBirthdayManager.cs" t="Include" />
-        <e p="ConsoleEntryPoint.cs" t="Include" />
         <e p="extensions" t="Include">
           <e p="TextWriterExtensions.cs" t="Include" />
         </e>

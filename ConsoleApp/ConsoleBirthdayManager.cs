@@ -13,82 +13,78 @@ using ConsoleApp.Commands.List;
 using ConsoleApp.Commands.Services;
 using ConsoleApp.Extensions;
 using ConsoleApp.Resources;
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace ConsoleApp
 {
-    [SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Local")]
-    internal class ConsoleBirthdayManager
+    public class ConsoleBirthdayManager
     {
-        private TextWriter _consoleTextWriter = Console.Out;
-        private TextReader _consoleTextReader = Console.In;
-        private IRepository<Person> _personRepository = new RepositoryFactory().NewPersonRepository();
-        private ICommandList _commands = new CommandList();
-        private IConsoleAdapter<IEnumerable<Person>> _personListAdapter;
-        private IConsoleAdapter<ICommandList> _commandListAdapter;
-        private CommandReaderService _commandReader;
-        private CommandParserService _commandParser;
+        internal TextWriter ConsoleTextWriter = Console.Out;
+        internal TextReader ConsoleTextReader = Console.In;
+        internal IRepository<Person> PersonRepository = new RepositoryFactory().NewPersonRepository();
+        internal ICommandList Commands = new CommandList();
+        internal IConsoleAdapter<IEnumerable<Person>> PersonListAdapter;
+        internal IConsoleAdapter<ICommandList> CommandListAdapter;
+        internal CommandReaderService CommandReader;
+        internal CommandParserService CommandParser;
 
         public ConsoleBirthdayManager()
         {
-            _personListAdapter = new PersonListAdapter(_consoleTextWriter);
-            _commandListAdapter = new CommandListAdapter(_consoleTextWriter);
-            _commandParser = new CommandParserService(_commands);
-            _commandReader = new CommandReaderService(_consoleTextReader, _commandParser);
+            PersonListAdapter = new PersonListAdapter(ConsoleTextWriter);
+            CommandListAdapter = new CommandListAdapter(ConsoleTextWriter);
+            CommandParser = new CommandParserService(Commands);
+            CommandReader = new CommandReaderService(ConsoleTextReader, CommandParser);
         }
 
-        public void Start()
+        public void PresentPeople()
         {
-            
-            PresentPeople();
-            PresentAllCommands();
+            var people = PersonRepository.GetAll();
+            if (people.Count == 0) WriteEmptyRepositoryMessage();
+            else PersonListAdapter.Write(people);
+            ConsoleTextWriter.SkipLine();
+        }
+
+        public void WriteEmptyRepositoryMessage()
+        {
+            ConsoleTextWriter.WriteLine(Messages.Error.NoPeopleAdded);
+        }
+
+        public void PresentAllCommands()
+        {
+            CommandListAdapter.Write(Commands);
+        }
+
+        public void PresentAvailableCommands(ICommandList availableCommands)
+        {
+            CommandListAdapter.Write(availableCommands);
+        }
+
+        public ICommand TryReadingCommand(int maxTries)
+        {
             var tries = 0;
             ICommand command;
             do
             {
                 command = TryReadingCommand();
                 tries++;
-            } 
-            while (command == null && tries < 4);
+            } while (command == null && tries < maxTries);
+            return command;
         }
 
-        
-        private void PresentPeople()
-        {
-            var people = _personRepository.GetAll();
-            if (people.Count == 0) WriteEmptyRepositoryMessage();
-            else _personListAdapter.Write(people);
-            _consoleTextWriter.SkipLine();
-        }
-
-        private void WriteEmptyRepositoryMessage()
-        {
-            _consoleTextWriter.WriteLine(Messages.Error.NoPeopleAdded);            
-        }
-
-        private void PresentAllCommands()
-        {
-            _commandListAdapter.Write(_commands);
-        }
-
-        private void PresentAvailableCommands(ICommandList availableCommands)
-        {
-            _commandListAdapter.Write(availableCommands);
-        }
-
-        private ICommand TryReadingCommand()
+        public ICommand TryReadingCommand()
         {
             try
             {
-                var command = _commandReader.ReadCommand();
-                _consoleTextWriter.WriteLine($"You have selected \"{command}\": {command.Description}");
+                var command = CommandReader.ReadCommand();
+                ConsoleTextWriter.WriteLine($"You have selected \"{command}\": {command.Description}");
                 return command;
             }
             catch (InvalidCommandException)
             {
-                _consoleTextWriter.WriteLine(Messages.Error.InvalidCommand);
+                ConsoleTextWriter.WriteLine(Messages.Error.InvalidCommand);
                 return null;
             }
         }
-        
     }
 }
