@@ -39,3 +39,6 @@ Thumbs.db
 
 # dotCover
 *.dotCover
+
+# Rider IDE
+.idea/.idea.BirthdayManager/.idea/workspace.xml
