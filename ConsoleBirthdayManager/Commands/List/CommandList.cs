@@ -11,6 +11,7 @@ namespace ConsoleBirthdayManager.Commands.List
             new ListPeopleCommand(),
             new SearchPeopleCommand(),
             new AddPersonCommand(),
+            new UpdatePersonNameCommand(),
             new DeletePersonCommand(),
             new ExitCommand()
         };

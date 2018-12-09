@@ -12,6 +12,8 @@ namespace ConsoleBirthdayManager.Resources
                 "Press any key to continue.";
             public const string ChoosePersonToDelete =
                 "Please type the number of the birthday you\'d like to delete: ";
+            public const string ChoosePersonToUpdateName =
+                "Please type the number of the person you\'d like to update: ";
             public const string TypeSearchQuery =
                 "Search by name or birthday (month/day): ";
         }
@@ -27,6 +29,8 @@ namespace ConsoleBirthdayManager.Resources
                 "These are all the upcoming birthdays, starting from the closest one:";
             public const string SelectedCommand =
                 "You selected \"{0}\": {1}";
+            public const string EditingPerson =
+                "Editing {0}";
             public const string Exiting =
                 "Bye!";
         }
@@ -38,6 +42,8 @@ namespace ConsoleBirthdayManager.Resources
                 "Birthday added!";
             public const string DeletedPerson =
                 "Successfully deleted {0}'s birthday.";
+            public const string UpdatedPersonName =
+                "Successfully updated {0}'s name to {1}.";
             public const string SearchResults =
                 "Results:";
         }
@@ -55,6 +61,8 @@ namespace ConsoleBirthdayManager.Resources
                 "Couldn't add this birthday. Please try again.";
             public const string DeleteFailed =
                 "Couldn\'t delete the given birthday. Please try again.";
+            public const string UpdateNameFailed =
+                "Couldn\'t edit the given person. Please try again.";
             public const string SearchGotNoResults =
                 "No one matching your description.";
             public const string GenericError =
