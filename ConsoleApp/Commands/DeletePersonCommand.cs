@@ -44,7 +44,9 @@ namespace ConsoleApp.Commands
             bool deleteSuccessful = false;
             try
             {
-                var personToBeDeleted = Repository.GetAll().ElementAt(displayIndex - 1);
+                var personToBeDeleted = Repository.GetAll()
+                                                  .OrderByDescending(person => person.Birthday.GetNextDate())
+                                                  .ElementAt(displayIndex - 1);
                 Repository.Delete(personToBeDeleted.id, out deleteSuccessful);
             }
             catch (Exception ex) when (ex is ArgumentNullException

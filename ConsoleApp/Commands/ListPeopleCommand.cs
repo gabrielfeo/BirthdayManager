@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 using ConsoleApp.Adapter;
 using ConsoleApp.Adapter.PersonNs;
 using ConsoleApp.Extensions;
@@ -44,7 +45,7 @@ namespace ConsoleApp.Commands
         private void ListAllPeople()
         {
             Writer.WriteLine(Messages.Declaration.ListingPeople);
-            var people = Repository.GetAll();
+            var people = Repository.GetAll().OrderBy(person => person.Birthday.GetNextDate());
             Adapter.Write(people);
             Writer.SkipLine();
         }
