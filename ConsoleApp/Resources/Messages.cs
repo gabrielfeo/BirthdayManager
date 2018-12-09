@@ -4,10 +4,6 @@ namespace ConsoleApp.Resources
 {
     public struct Messages
     {
-        public const string AppIntro =
-            "Welcome to the Birthday Manager, {0}!";
-
-
         public struct Instruction
         {
             public const string ChooseCommand =
@@ -17,12 +13,14 @@ namespace ConsoleApp.Resources
 
         public struct Declaration
         {
+            public const string Welcoming =
+                "Welcome to the Birthday Manager, {0}!";
             public const string ListingPeople =
                 "These are all the upcoming birthdays, starting from the closest one:";
+            public const string SelectedCommand =
+                "You selected \"{0}\": {1}";
             public const string Exiting =
                 "Bye!";
-            public const string SelectedCommand = 
-                "You selected \"{0}\": {1}";
         }
 
 
