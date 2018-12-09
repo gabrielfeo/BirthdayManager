@@ -15,6 +15,8 @@ namespace ConsoleApp.Commands
         public override string Name { get; } = "Delete Birthday";
         public override string Description { get; } = "Remove a birthday entry from the application.";
 
+        private string _deletedPersonName = "";
+
         public override IEnumerable<ICommand> Dependencies { get; } = new List<ICommand>()
         {
             new ListPeopleCommand()
@@ -27,7 +29,7 @@ namespace ConsoleApp.Commands
             var deleteSuccessful = DeletePersonOnIndex(indexOfPersonToDelete);
 
             Writer.SkipLine();
-            if (deleteSuccessful) Writer.WriteLine(Messages.Success.DeletedPerson);
+            if (deleteSuccessful) Writer.WriteLine(Messages.Success.DeletedPerson, _deletedPersonName);
             else ErrorWriter.WriteLine(Messages.Error.DeleteFailed);
         }
 
@@ -45,8 +47,9 @@ namespace ConsoleApp.Commands
             try
             {
                 var personToBeDeleted = Repository.GetAll()
-                                                  .OrderByDescending(person => person.Birthday.GetNextDate())
+                                                  .OrderBy(person => person.Birthday.GetNextDate())
                                                   .ElementAt(displayIndex - 1);
+                _deletedPersonName = personToBeDeleted.Name;
                 Repository.Delete(personToBeDeleted.Id, out deleteSuccessful);
             }
             catch (Exception ex) when (ex is ArgumentNullException

@@ -37,7 +37,7 @@ namespace ConsoleApp.Resources
             public const string AddedPerson =
                 "Birthday added!";
             public const string DeletedPerson =
-                "Birthday deleted successfully.";
+                "Successfully deleted {0}'s birthday.";
             public const string SearchResults =
                 "Results:";
         }
