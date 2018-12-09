@@ -55,7 +55,8 @@ namespace ConsoleApp
 
         public void PresentIntro()
         {
-            TextWriter.WriteLine(Messages.AppIntro);
+            var username = Environment.UserName; 
+            TextWriter.WriteLine(Messages.AppIntro, username);
         }
 
         public void PresentPeople()

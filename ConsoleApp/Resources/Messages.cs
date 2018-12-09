@@ -5,7 +5,7 @@ namespace ConsoleApp.Resources
     public struct Messages
     {
         public const string AppIntro =
-            "Welcome to the Birthday Manager!";
+            "Welcome to the Birthday Manager, {0}!";
 
 
         public struct Instruction
