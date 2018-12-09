@@ -15,7 +15,7 @@ namespace ConsoleBirthdayManager.Resources
             public const string ChoosePersonToUpdateName =
                 "Please type the number of the person you\'d like to update: ";
             public const string TypeSearchQuery =
-                "Search by name or birthday (month/day): ";
+                "Search: ";
         }
 
 

@@ -53,5 +53,42 @@ namespace Repository
         {
             return GetAll().AsEnumerable().Any(personInRepository => personInRepository.HasId(id));
         }
+
+        public IEnumerable<Person> Search(string query)
+        {
+            var people = GetAll();
+            var queryAsDateTime = ParseDateTimeFrom(query);
+            var queryAsInteger = ParseIntFrom(query);
+
+            bool NameAsQuery(Person person) => person.Name.ToLower().Contains(query.ToLower());
+            bool DateTimeAsQuery(Person person) => person.Birthday.GetNextDate().Equals(queryAsDateTime);
+            bool YearAsQuery(Person person) => person.Birthday.GetNextDate().Year.Equals(queryAsInteger);
+            bool MonthAsQuery(Person person) => person.Birthday.Month.Equals(queryAsInteger);
+            bool DayAsQuery(Person person) => person.Birthday.Day.Equals(queryAsInteger);
+
+            var peopleMatchingName = people.Where(NameAsQuery);
+            var peopleMatchingFullDate = people.Where(DateTimeAsQuery);
+            var peopleMatchingYear = people.Where(YearAsQuery);
+            var peopleMatchingMonth = people.Where(MonthAsQuery);
+            var peopleMatchingDay = people.Where(DayAsQuery);
+
+            return peopleMatchingName
+                   .Concat(peopleMatchingFullDate)
+                   .Concat(peopleMatchingYear)
+                   .Concat(peopleMatchingMonth)
+                   .Concat(peopleMatchingDay);
+        }
+
+        private int ParseIntFrom(string query)
+        {
+            int.TryParse(query, out var integer);
+            return integer;
+        }
+
+        private DateTime ParseDateTimeFrom(string query)
+        {
+            DateTime.TryParse(query, out var dateTime);
+            return dateTime;
+        }
     }
 }
