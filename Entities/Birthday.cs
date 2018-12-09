@@ -2,7 +2,7 @@ using System;
 					
 namespace Entities
 {
-    public struct Birthday
+    public struct Birthday : IEquatable<Birthday>
     {
         public int Day { get; }
         public int Month { get; }
@@ -25,6 +25,11 @@ namespace Entities
             var currentYearBirthday = new DateTime(today.Year, Month, Day);
             var yearOfNextBirthday = (today < currentYearBirthday) ? today.Year : today.Year+1;
             return new DateTime(yearOfNextBirthday, Month, Day);
+        }
+
+        public bool Equals(Birthday other)
+        {
+            return (this.Day == other.Day) && (this.Month == other.Month);
         }
     }
 }

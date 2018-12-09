@@ -12,6 +12,8 @@ namespace ConsoleApp.Resources
                 "Press any key to continue.";
             public const string ChoosePersonToDelete =
                 "Please type the number of the birthday you\'d like to delete: ";
+            public const string TypeSearchQuery =
+                "Search by name or birthday (month/day): ";
         }
 
 
@@ -36,6 +38,8 @@ namespace ConsoleApp.Resources
                 "Birthday added!";
             public const string DeletedPerson =
                 "Birthday deleted successfully.";
+            public const string SearchResults =
+                "Results:";
         }
 
 
@@ -51,6 +55,8 @@ namespace ConsoleApp.Resources
                 "Couldn't add this birthday. Please try again.";
             public const string DeleteFailed =
                 "Couldn\'t delete the given birthday. Please try again.";
+            public const string SearchGotNoResults =
+                "No one matching your description.";
             public const string GenericError =
                 "Something went wrong. Please try again.";
         }
