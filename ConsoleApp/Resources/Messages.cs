@@ -21,6 +21,8 @@ namespace ConsoleApp.Resources
                 "These are all the upcoming birthdays, starting from the closest one:";
             public const string Exiting =
                 "Bye!";
+            public const string SelectedCommand = 
+                "You selected \"{0}\": {1}";
         }
 
 

@@ -93,8 +93,9 @@ namespace ConsoleApp
         {
             try
             {
+                TextWriter.Write(Messages.Instruction.ChooseCommand);
                 var command = CommandReader.ReadCommand();
-                TextWriter.WriteLine($"You have selected \"{command.Name}\": {command.Description}");
+                TextWriter.WriteLine(Messages.Declaration.SelectedCommand, command.Name, command.Description);
                 return command;
             }
             catch (InvalidCommandException)
