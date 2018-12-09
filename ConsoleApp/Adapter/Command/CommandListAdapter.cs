@@ -20,7 +20,7 @@ namespace ConsoleApp.Adapter.Command
             foreach (var command in commands)
             {
                 var commandKey = commands.IndexOf(command);
-                Writer.WriteLine($"{commandKey}. {command.Description}");
+                Writer.WriteLine($"{commandKey}. {command.Name}");
             }
         }
     }
