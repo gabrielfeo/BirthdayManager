@@ -34,8 +34,7 @@ namespace ConsoleApp
         public TextWriter TextWriter { get; set; }
         public TextWriter ErrorWriter { get; set; }
         public TextReader TextReader { get; set; }
-        public ICommandList AllCommands { get; private set; }
-        public ICommandList AvailableCommands { get; set; }
+        public ICommandList Commands { get; private set; }
 
         public ConsoleBirthdayManager(TextWriter consoleTextWriter, TextReader consoleTextReader,
                                       TextWriter errorWriter = null)
@@ -44,10 +43,9 @@ namespace ConsoleApp
             this.TextReader = consoleTextReader;
             this.ErrorWriter = errorWriter ?? TextWriter;
 
-            AllCommands = new CommandList();
-            AvailableCommands = AllCommands;
+            Commands = new CommandList();
             CommandListAdapter = new CommandListAdapter(TextWriter);
-            CommandParser = new CommandParserService(AllCommands);
+            CommandParser = new CommandParserService(Commands);
             CommandReader = new CommandReaderService(TextReader, CommandParser);
 
             PersonRepository = new RepositoryFactory().NewRepository<Person>();
@@ -74,15 +72,9 @@ namespace ConsoleApp
             TextWriter.SkipLine();
         }
 
-        public void PresentAllCommands()
-        {
-            CommandListAdapter.Write(AllCommands);
-            TextWriter.SkipLine();
-        }
-
         public void PresentAvailableCommands()
         {
-            CommandListAdapter.Write(AvailableCommands);
+            CommandListAdapter.Write(Commands);
             TextWriter.SkipLine();
         }
 
