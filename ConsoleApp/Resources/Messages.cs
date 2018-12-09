@@ -24,6 +24,13 @@ namespace ConsoleApp.Resources
         }
 
 
+        public struct Success
+        {
+            public const string AddedPerson =
+                "Birthday added!";
+        }
+
+
         public struct Error
         {
             public const string InvalidCommand =

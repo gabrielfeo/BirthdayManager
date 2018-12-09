@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using ConsoleApp.Extensions;
 using ConsoleApp.Resources;
 using Entities;
 using Repository;
@@ -19,8 +20,12 @@ namespace ConsoleApp.Commands
             var name = GetPersonName();
             var birthday = GetPersonBirthday();
             var person = new Person(GenerateGuid(), name, birthday);
+            
             Repository.Insert(person, out bool successful);
-            if (!successful) ErrorWriter.WriteLine(Messages.Error.GenericError);
+            
+            Writer.SkipLine();
+            if (successful) Writer.WriteLine(Messages.Success.AddedPerson);
+            else ErrorWriter.WriteLine(Messages.Error.GenericError);
         }
 
         private string GenerateGuid() => Guid.NewGuid().ToString();
