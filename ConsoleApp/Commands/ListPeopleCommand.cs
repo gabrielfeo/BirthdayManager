@@ -21,10 +21,11 @@ namespace ConsoleApp.Commands
         public override void Execute()
         {
             VerifyProperties();
-            if (Repository.GetAll().Count > 0)
+            var people = Repository.GetAll();
+            if (people.Any())
             {
                 InitializeAdapter();
-                ListAllPeople();
+                ListAll(people);
             }
             else
             {
@@ -42,11 +43,11 @@ namespace ConsoleApp.Commands
             ErrorWriter.WriteLine(Messages.Error.NoPeopleAdded);
         }
 
-        private void ListAllPeople()
+        private void ListAll(IEnumerable<Person> people)
         {
             Writer.WriteLine(Messages.Declaration.ListingPeople);
-            var people = Repository.GetAll().OrderBy(person => person.Birthday.GetNextDate());
-            Adapter.Write(people);
+            var orderedPeople = people.OrderBy(person => person.Birthday.GetNextDate());
+            Adapter.Write(orderedPeople);
             Writer.SkipLine();
         }
     }

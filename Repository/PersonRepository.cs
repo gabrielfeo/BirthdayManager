@@ -16,7 +16,7 @@ namespace Repository
             Validator = personValidator;
         }
 
-        public abstract ICollection<Person> GetAll();
+        public abstract IEnumerable<Person> GetAll();
         public abstract Person Get(Person person);
         public abstract Person GetById(string personId);
 

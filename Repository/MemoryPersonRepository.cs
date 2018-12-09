@@ -15,7 +15,7 @@ namespace Repository
         {
         }
 
-        public override ICollection<Person> GetAll() => _people;
+        public override IEnumerable<Person> GetAll() => _people;
         public override Person Get(Person person) => GetById(person.Id);
 
         public override Person GetById(string personId)
