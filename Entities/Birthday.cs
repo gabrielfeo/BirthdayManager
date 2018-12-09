@@ -1,5 +1,6 @@
 using System;
-					
+using Newtonsoft.Json;
+
 namespace Entities
 {
     public struct Birthday : IEquatable<Birthday>
@@ -7,6 +8,7 @@ namespace Entities
         public int Day { get; }
         public int Month { get; }
 
+        [JsonConstructor]
         public Birthday(int month, int day)
         {
             this.Month = month;
@@ -18,12 +20,12 @@ namespace Entities
             this.Month = date.Month;
             this.Day = date.Day;
         }
-		
-		public DateTime GetNextDate()
-		{
+
+        public DateTime GetNextDate()
+        {
             var today = DateTime.Now;
             var currentYearBirthday = new DateTime(today.Year, Month, Day);
-            var yearOfNextBirthday = (today.Date <= currentYearBirthday) ? today.Year : today.Year+1;
+            var yearOfNextBirthday = (today.Date <= currentYearBirthday) ? today.Year : today.Year + 1;
             return new DateTime(yearOfNextBirthday, Month, Day);
         }
 
