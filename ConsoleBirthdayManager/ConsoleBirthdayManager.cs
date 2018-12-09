@@ -14,6 +14,8 @@ using ConsoleBirthdayManager.Commands.Exceptions;
 using ConsoleBirthdayManager.Commands.List;
 using ConsoleBirthdayManager.Commands.Services;
 using ConsoleBirthdayManager.Resources;
+using Validator;
+using static Repository.RepositoryFactory;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable MemberCanBePrivate.Global
@@ -48,7 +50,8 @@ namespace ConsoleBirthdayManager
             CommandParser = new CommandParserService(Commands);
             CommandReader = new CommandReaderService(TextReader, CommandParser);
 
-            PersonRepository = new RepositoryFactory().NewRepository<Person>();
+            var personValidator = new ValidatorFactory().NewValidator<Person>();
+            PersonRepository = new RepositoryFactory().NewRepository(StorageOption.Filesystem, personValidator);
             PersonListAdapter = new PersonListAdapter(TextWriter, ErrorWriter);
         }
 
