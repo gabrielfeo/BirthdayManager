@@ -1,37 +1,35 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Entities;
 using Validator;
 
-namespace Repository
+namespace Repository.PersonNs
 {
-    internal abstract class PersonRepository : IRepository<Person>
+    internal abstract class PersonRepository : IRepository<Entities.Person>
     {
-        protected IValidator<Person> Validator;
+        protected IValidator<Entities.Person> Validator;
 
-        protected PersonRepository(IValidator<Person> personValidator)
+        protected PersonRepository(IValidator<Entities.Person> personValidator)
         {
             Validator = personValidator;
         }
 
-        public abstract IEnumerable<Person> GetAll();
-        public abstract Person Get(Person person);
-        public abstract Person GetById(string personId);
+        public abstract IEnumerable<Entities.Person> GetAll();
+        public abstract Entities.Person Get(Entities.Person person);
+        public abstract Entities.Person GetById(string personId);
 
-        public abstract void Insert(Person newPerson, out bool successful);
-        public abstract void Update(Person changedPerson, out bool successful);
+        public abstract void Insert(Entities.Person newPerson, out bool successful);
+        public abstract void Update(Entities.Person changedPerson, out bool successful);
         public abstract void Delete(string personId, out bool successful);
 
-        protected bool CanInsert(Person person)
+        protected bool CanInsert(Entities.Person person)
         {
             var isValidPerson = Validator.Validate(person);
             var isNotKnownPerson = !IsKnownPerson(person);
             return (isValidPerson && isNotKnownPerson);
         }
 
-        protected bool CanUpdate(Person changedPerson)
+        protected bool CanUpdate(Entities.Person changedPerson)
         {
             var isValidPerson = Validator.Validate(changedPerson);
             var isKnownPerson = IsKnownPersonId(changedPerson.Id);
@@ -44,7 +42,7 @@ namespace Repository
             return isKnownPerson;
         }
 
-        private bool IsKnownPerson(Person person)
+        private bool IsKnownPerson(Entities.Person person)
         {
             return GetAll().AsEnumerable().Contains(person);
         }
@@ -54,17 +52,17 @@ namespace Repository
             return GetAll().AsEnumerable().Any(personInRepository => personInRepository.HasId(id));
         }
 
-        public IEnumerable<Person> Search(string query)
+        public IEnumerable<Entities.Person> Search(string query)
         {
             var people = GetAll();
             var queryAsDateTime = ParseDateTimeFrom(query);
             var queryAsInteger = ParseIntFrom(query);
 
-            bool NameAsQuery(Person person) => person.Name.ToLower().Contains(query.ToLower());
-            bool DateTimeAsQuery(Person person) => person.Birthday.GetNextDate().Equals(queryAsDateTime);
-            bool YearAsQuery(Person person) => person.Birthday.GetNextDate().Year.Equals(queryAsInteger);
-            bool MonthAsQuery(Person person) => person.Birthday.Month.Equals(queryAsInteger);
-            bool DayAsQuery(Person person) => person.Birthday.Day.Equals(queryAsInteger);
+            bool NameAsQuery(Entities.Person person) => person.Name.ToLower().Contains(query.ToLower());
+            bool DateTimeAsQuery(Entities.Person person) => person.Birthday.GetNextDate().Equals(queryAsDateTime);
+            bool YearAsQuery(Entities.Person person) => person.Birthday.GetNextDate().Year.Equals(queryAsInteger);
+            bool MonthAsQuery(Entities.Person person) => person.Birthday.Month.Equals(queryAsInteger);
+            bool DayAsQuery(Entities.Person person) => person.Birthday.Day.Equals(queryAsInteger);
 
             var peopleMatchingName = people.Where(NameAsQuery);
             var peopleMatchingFullDate = people.Where(DateTimeAsQuery);
