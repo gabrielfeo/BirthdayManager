@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using ConsoleApp.Commands.Exceptions;
 using Entities;
@@ -20,6 +21,8 @@ namespace ConsoleApp.Commands
             get => _errorWriter ?? Writer;
             set => _errorWriter = value;
         }
+
+        public abstract IEnumerable<ICommand> Dependencies { get; }
 
         public abstract void Execute();
 

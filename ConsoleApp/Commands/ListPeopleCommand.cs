@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using ConsoleApp.Adapter;
 using ConsoleApp.Adapter.PersonNs;
 using ConsoleApp.Extensions;
@@ -13,6 +14,8 @@ namespace ConsoleApp.Commands
         public override string Description { get; } = "Lists all birthdays currently registered.";
 
         public IConsoleAdapter<IEnumerable<Person>> Adapter { get; private set; }
+
+        public override IEnumerable<ICommand> Dependencies { get; } = ImmutableList<ICommand>.Empty;
 
         public override void Execute()
         {

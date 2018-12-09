@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Entities;
 using Repository;
 using ConsoleApp.Adapter;
@@ -55,7 +56,7 @@ namespace ConsoleApp
 
         public void PresentIntro()
         {
-            var username = Environment.UserName; 
+            var username = Environment.UserName;
             TextWriter.WriteLine(Messages.Declaration.Welcoming, username);
             TextWriter.SkipLine();
         }
@@ -119,6 +120,7 @@ namespace ConsoleApp
             if (command != null)
             {
                 SetUp(command);
+                HandleDependenciesOf(command);
                 command.Execute();
             }
             else
@@ -132,6 +134,15 @@ namespace ConsoleApp
             command.Writer = TextWriter;
             command.Reader = TextReader;
             command.Repository = PersonRepository;
+        }
+
+        private void HandleDependenciesOf(ICommand command)
+        {
+            foreach (var dependency in command.Dependencies)
+            {
+                SetUp(dependency);
+                dependency.Execute();
+            }
         }
 
         public void DisplayMessage(string message)
