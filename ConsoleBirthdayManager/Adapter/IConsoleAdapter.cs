@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace ConsoleApp.Adapter
+namespace ConsoleBirthdayManager.Adapter
 {
     public interface IConsoleAdapter<T>
     {

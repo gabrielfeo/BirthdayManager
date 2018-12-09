@@ -5,15 +5,15 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Entities;
 using Repository;
-using ConsoleApp.Adapter;
-using ConsoleApp.Adapter.Command;
-using ConsoleApp.Adapter.PersonNs;
-using ConsoleApp.Commands;
-using ConsoleApp.Commands.Exceptions;
-using ConsoleApp.Commands.List;
-using ConsoleApp.Commands.Services;
-using ConsoleApp.Extensions;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Extensions;
+using ConsoleBirthdayManager.Adapter;
+using ConsoleBirthdayManager.Adapter.Command;
+using ConsoleBirthdayManager.Adapter.PersonNs;
+using ConsoleBirthdayManager.Commands;
+using ConsoleBirthdayManager.Commands.Exceptions;
+using ConsoleBirthdayManager.Commands.List;
+using ConsoleBirthdayManager.Commands.Services;
+using ConsoleBirthdayManager.Resources;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable MemberCanBePrivate.Global
@@ -21,7 +21,7 @@ using ConsoleApp.Resources;
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable PrivateFieldCanBeConvertedToLocalVariable
 
-namespace ConsoleApp
+namespace ConsoleBirthdayManager
 {
     public class ConsoleBirthdayManager
     {

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.IO;
-using ConsoleApp.Commands.Exceptions;
+using ConsoleBirthdayManager.Commands.Exceptions;
 using Entities;
 using Repository;
 
-namespace ConsoleApp.Commands
+namespace ConsoleBirthdayManager.Commands
 {
     internal abstract class Command : ICommand
     {

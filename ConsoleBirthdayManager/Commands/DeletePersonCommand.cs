@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using ConsoleApp.Commands.List;
-using ConsoleApp.Extensions;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Extensions;
+using ConsoleBirthdayManager.Resources;
 using Entities;
 
-namespace ConsoleApp.Commands
+namespace ConsoleBirthdayManager.Commands
 {
     internal class DeletePersonCommand : Command
     {

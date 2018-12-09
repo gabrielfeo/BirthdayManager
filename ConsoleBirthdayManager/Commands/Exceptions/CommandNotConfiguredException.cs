@@ -1,4 +1,4 @@
-namespace ConsoleApp.Commands.Exceptions
+namespace ConsoleBirthdayManager.Commands.Exceptions
 {
     public class CommandNotConfiguredException : System.Exception
     {

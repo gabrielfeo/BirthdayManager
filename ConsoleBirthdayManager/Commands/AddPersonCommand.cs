@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
+using System.Linq;
 using System.Text;
-using ConsoleApp.Extensions;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Extensions;
+using ConsoleBirthdayManager.Resources;
 using Entities;
 using Repository;
 
-namespace ConsoleApp.Commands
+namespace ConsoleBirthdayManager.Commands
 {
     internal class AddPersonCommand : Command
     {
         public override string Name => "Add Birthday";
         public override string Description => "Add somebody\'s birthday to the Birthday Manager";
 
-        public override IEnumerable<ICommand> Dependencies { get; } = ImmutableList<ICommand>.Empty;
+        public override IEnumerable<ICommand> Dependencies { get; } = Enumerable.Empty<ICommand>();
 
         public override void Execute()
         {

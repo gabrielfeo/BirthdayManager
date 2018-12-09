@@ -1,13 +1,12 @@
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using ConsoleApp.Adapter;
-using ConsoleApp.Adapter.PersonNs;
-using ConsoleApp.Extensions;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Extensions;
+using ConsoleBirthdayManager.Adapter;
+using ConsoleBirthdayManager.Adapter.PersonNs;
+using ConsoleBirthdayManager.Resources;
 using Entities;
 
-namespace ConsoleApp.Commands
+namespace ConsoleBirthdayManager.Commands
 {
     internal class ListPeopleCommand : Command
     {
@@ -16,7 +15,7 @@ namespace ConsoleApp.Commands
 
         public IConsoleAdapter<IEnumerable<Person>> Adapter { get; private set; }
 
-        public override IEnumerable<ICommand> Dependencies { get; } = ImmutableList<ICommand>.Empty;
+        public override IEnumerable<ICommand> Dependencies { get; } = Enumerable.Empty<ICommand>();
 
         public override void Execute()
         {

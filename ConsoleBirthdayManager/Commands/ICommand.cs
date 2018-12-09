@@ -4,7 +4,7 @@ using System.IO;
 using Entities;
 using Repository;
 
-namespace ConsoleApp.Commands
+namespace ConsoleBirthdayManager.Commands
 {
     public interface ICommand
     {

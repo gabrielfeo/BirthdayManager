@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ConsoleApp.Commands.Exceptions;
-using ConsoleApp.Commands.List;
+using ConsoleBirthdayManager.Commands.Exceptions;
+using ConsoleBirthdayManager.Commands.List;
 
-namespace ConsoleApp.Commands.Services
+namespace ConsoleBirthdayManager.Commands.Services
 {
     internal class CommandParserService
     {

@@ -1,21 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using ConsoleApp.Adapter;
-using ConsoleApp.Adapter.PersonNs;
-using ConsoleApp.Extensions;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Extensions;
+using ConsoleBirthdayManager.Adapter;
+using ConsoleBirthdayManager.Adapter.PersonNs;
+using ConsoleBirthdayManager.Resources;
 using Entities;
 
-namespace ConsoleApp.Commands
+namespace ConsoleBirthdayManager.Commands
 {
     internal class SearchPeopleCommand : Command
     {
         public override string Name { get; } = "Search Birthdays";
         public override string Description { get; } = "Search all registered birthdays by name or date";
 
-        public override IEnumerable<ICommand> Dependencies { get; } = ImmutableList<ICommand>.Empty;
+        public override IEnumerable<ICommand> Dependencies { get; } = Enumerable.Empty<ICommand>();
         public IConsoleAdapter<IEnumerable<Person>> ResultsAdapter { get; private set; }
 
         private string _query;

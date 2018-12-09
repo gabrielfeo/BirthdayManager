@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ConsoleApp.Commands.List
+namespace ConsoleBirthdayManager.Commands.List
 {
     public interface ICommandList : IReadOnlyList<ICommand>
     {

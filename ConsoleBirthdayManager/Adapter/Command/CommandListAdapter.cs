@@ -1,10 +1,9 @@
 using System.IO;
-using System.Reflection.Metadata;
-using ConsoleApp.Commands.List;
-using ConsoleApp.Extensions;
-using static ConsoleApp.Resources.Messages;
+using ConsoleBirthdayManager.Extensions;
+using ConsoleBirthdayManager.Commands.List;
+using static ConsoleBirthdayManager.Resources.Messages;
 
-namespace ConsoleApp.Adapter.Command
+namespace ConsoleBirthdayManager.Adapter.Command
 {
     internal class CommandListAdapter : IConsoleAdapter<ICommandList>
     {

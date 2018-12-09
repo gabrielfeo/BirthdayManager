@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Entities;
 using Repository;
-using ConsoleApp.Adapter;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Adapter;
+using ConsoleBirthdayManager.Resources;
 
-namespace ConsoleApp.Commands.Services
+namespace ConsoleBirthdayManager.Commands.Services
 {
     internal class CommandReaderService
     {

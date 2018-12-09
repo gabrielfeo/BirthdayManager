@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace ConsoleApp.Extensions
+namespace ConsoleBirthdayManager.Extensions
 {
     internal static class TextWriterExtensions
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace ConsoleApp.Resources
+namespace ConsoleBirthdayManager.Resources
 {
     public struct Messages
     {

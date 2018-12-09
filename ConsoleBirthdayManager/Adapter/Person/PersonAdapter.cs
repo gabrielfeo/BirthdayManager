@@ -1,7 +1,7 @@
 using System.IO;
 using Entities;
 
-namespace ConsoleApp.Adapter.PersonNs
+namespace ConsoleBirthdayManager.Adapter.PersonNs
 {
     internal class PersonAdapter : IConsoleAdapter<Person>
     {

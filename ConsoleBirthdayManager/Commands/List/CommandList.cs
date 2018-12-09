@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace ConsoleApp.Commands.List
+namespace ConsoleBirthdayManager.Commands.List
 {
     internal class CommandList : ICommandList
     {

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using ConsoleApp.Extensions;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Extensions;
+using ConsoleBirthdayManager.Resources;
 using Entities;
 
-namespace ConsoleApp.Adapter.PersonNs
+namespace ConsoleBirthdayManager.Adapter.PersonNs
 {
     internal class PersonListAdapter : PersonAdapter, IConsoleAdapter<IEnumerable<Person>>
     {

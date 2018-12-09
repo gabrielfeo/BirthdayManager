@@ -1,11 +1,11 @@
 using System;
 using Entities;
 using Repository;
-using ConsoleApp.Adapter;
-using ConsoleApp.Commands;
-using ConsoleApp.Resources;
+using ConsoleBirthdayManager.Adapter;
+using ConsoleBirthdayManager.Commands;
+using ConsoleBirthdayManager.Resources;
 
-namespace ConsoleApp
+namespace ConsoleBirthdayManager
 {
     public class ConsoleApplication
     {
