@@ -47,7 +47,7 @@ namespace ConsoleApp.Commands
                 var personToBeDeleted = Repository.GetAll()
                                                   .OrderByDescending(person => person.Birthday.GetNextDate())
                                                   .ElementAt(displayIndex - 1);
-                Repository.Delete(personToBeDeleted.id, out deleteSuccessful);
+                Repository.Delete(personToBeDeleted.Id, out deleteSuccessful);
             }
             catch (Exception ex) when (ex is ArgumentNullException
                                        || ex is ArgumentOutOfRangeException)

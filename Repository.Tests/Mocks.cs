@@ -12,9 +12,8 @@ namespace Repository.Tests
         public static Mock<IValidator<Person>> GetUselessValidator()
         {
             var mockValidator = new Mock<IValidator<Person>>();
-            var anyPerson = It.IsAny<Person>();
             mockValidator
-                .Setup(validator => validator.Validate(anyPerson))
+                .Setup(validator => validator.Validate(It.IsAny<Person>()))
                 .Returns(true);
             return mockValidator;
         }

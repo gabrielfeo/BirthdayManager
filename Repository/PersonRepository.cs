@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Entities;
@@ -33,7 +34,7 @@ namespace Repository
         protected bool CanUpdate(Person changedPerson)
         {
             var isValidPerson = Validator.Validate(changedPerson);
-            var isKnownPerson = IsKnownPerson(changedPerson);
+            var isKnownPerson = IsKnownPersonId(changedPerson.Id);
             return (isValidPerson && isKnownPerson);
         }
 

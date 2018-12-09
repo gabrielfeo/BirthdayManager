@@ -17,7 +17,7 @@ namespace Validator
 
         private bool IsIdValid()
         {
-            bool isValidGuid = Guid.TryParse(_person.id, out Guid _);
+            bool isValidGuid = Guid.TryParse(_person.Id, out Guid _);
             return isValidGuid;
         }
 

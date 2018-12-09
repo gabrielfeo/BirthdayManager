@@ -16,7 +16,7 @@ namespace Repository
         }
 
         public override ICollection<Person> GetAll() => _people;
-        public override Person Get(Person person) => GetById(person.id);
+        public override Person Get(Person person) => GetById(person.Id);
 
         public override Person GetById(string personId)
         {
@@ -40,7 +40,7 @@ namespace Repository
         {
             if (CanUpdate(changedPerson))
             {
-                Delete(changedPerson.id, out bool removalSuccessful);
+                Delete(changedPerson.Id, out bool removalSuccessful);
                 if (removalSuccessful) _people.Add(changedPerson);
                 successful = removalSuccessful && _people.Contains(changedPerson);
             }

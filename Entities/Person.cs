@@ -4,18 +4,18 @@ namespace Entities
 {
     public class Person : IEquatable<Person>
     {
-        public string id { get; }
+        public string Id { get; }
         public string Name { get; set; }
         public Birthday Birthday { get; }
 
         public Person(string id, string name, Birthday birthday)
         {
-            this.id = id;
+            this.Id = id;
             this.Name = name;
             this.Birthday = birthday;
         } 
 
-        public bool Equals(Person other) => this.HasId(other.id);
-        public bool HasId(string id) => this.id.Equals(id);
+        public bool Equals(Person other) => (other != null) && (this.HasId(other.Id));
+        public bool HasId(string id) => this.Id.Equals(id);
     }
 }
