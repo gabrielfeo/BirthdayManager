@@ -1,27 +1,28 @@
 using System.Collections.Generic;
 using System.Linq;
+using Entities;
 using Validator;
 
 namespace Repository.PersonNs
 {
     internal class MemoryPersonRepository : PersonRepository
     {
-        private ICollection<Entities.Person> _people = new HashSet<Entities.Person>();
+        private ICollection<Person> _people = new HashSet<Person>();
 
-        internal MemoryPersonRepository(IValidator<Entities.Person> personValidator)
+        internal MemoryPersonRepository(IValidator<Person> personValidator)
             : base(personValidator)
         {
         }
 
-        public override IEnumerable<Entities.Person> GetAll() => _people;
-        public override Entities.Person Get(Entities.Person person) => GetById(person.Id);
+        public override IEnumerable<Person> GetAll() => _people;
+        public override Person Get(Person person) => GetById(person.Id);
 
-        public override Entities.Person GetById(string personId)
+        public override Person GetById(string personId)
         {
             return _people.FirstOrDefault(person => person.HasId(personId));
         }
 
-        public override void Insert(Entities.Person newPerson, out bool successful)
+        public override void Insert(Person newPerson, out bool successful)
         {
             if (CanInsert(newPerson))
             {
@@ -34,7 +35,7 @@ namespace Repository.PersonNs
             }
         }
 
-        public override void Update(Entities.Person changedPerson, out bool successful)
+        public override void Update(Person changedPerson, out bool successful)
         {
             if (CanUpdate(changedPerson))
             {
