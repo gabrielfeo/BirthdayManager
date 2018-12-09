@@ -10,6 +10,8 @@ namespace ConsoleApp.Resources
                 "Please decide what to do: ";
             public const string PressKeyToContinue =
                 "Press any key to continue.";
+            public const string ChoosePersonToDelete =
+                "Please type the number of the birthday you\'d like to delete: ";
         }
 
 
@@ -32,6 +34,8 @@ namespace ConsoleApp.Resources
         {
             public const string AddedPerson =
                 "Birthday added!";
+            public const string DeletedPerson =
+                "Birthday deleted successfully.";
         }
 
 
@@ -39,13 +43,12 @@ namespace ConsoleApp.Resources
         {
             public const string InvalidCommand =
                 "That command is not available. Please try again.";
-
             public const string NoCommandToExecute =
-                "There's nothing to do then. Should we try again?";
-
+                "There\'s nothing to do then. Should we try again?";
             public const string NoPeopleAdded =
-                "There's no one here yet. Please add somebody's birthday to get started.";
-
+                "There\'s no one here yet. Please add somebody\'s birthday to get started.";
+            public const string DeleteFailed =
+                "Couldn\'t delete the given birthday. Please try again.";
             public const string GenericError =
                 "Something went wrong. Please try again.";
         }
