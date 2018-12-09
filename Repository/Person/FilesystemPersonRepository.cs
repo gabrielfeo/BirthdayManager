@@ -14,9 +14,6 @@ namespace Repository.PersonNs
     {
         private readonly string _peopleStorePath =
             Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/PeopleStore.txt";
-        private TextWriter _writer;
-        private TextReader _reader;
-        private Stream _stream;
 
         public FilesystemPersonRepository(IValidator<Person> personValidator) : base(personValidator)
         {
@@ -42,7 +39,7 @@ namespace Repository.PersonNs
         public override void Insert(Person newPerson, out bool successful)
         {
             successful = false;
-            if (!CanInsert(newPerson)) return;
+            if (!CanUseStore() || !CanInsert(newPerson)) return;
 
             var currentPeople = GetAll();
             var peopleIncludingNewPerson = currentPeople.Append(newPerson);
@@ -54,7 +51,7 @@ namespace Repository.PersonNs
         public override void Update(Person changedPerson, out bool successful)
         {
             successful = false;
-            if (!CanUpdate(changedPerson)) return;
+            if (!CanUseStore() || !CanUpdate(changedPerson)) return;
 
             var currentPeople = GetAll();
             var peopleWithChangedPerson = currentPeople.Where(person => !person.HasId(changedPerson.Id))
@@ -66,7 +63,7 @@ namespace Repository.PersonNs
         public override void Delete(string personId, out bool successful)
         {
             successful = false;
-            if (!CanDelete(personId)) return;
+            if (!CanUseStore() || !CanDelete(personId)) return;
 
             var currentPeople = GetAll();
             var peopleWithoutDeletedPerson = currentPeople.Where(person => !person.HasId(personId));
@@ -90,6 +87,22 @@ namespace Repository.PersonNs
         private void CreateStoreIfAbsent()
         {
             if (!File.Exists(_peopleStorePath)) File.Create(_peopleStorePath);
+        }
+        
+        private bool CanUseStore()
+        {
+            bool canUse = false;
+            try
+            {
+                var testStream = new FileStream(_peopleStorePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                canUse = (testStream.CanRead) && (testStream.CanWrite);
+                testStream.Close();
+            }
+            catch (IOException exception)
+            {
+                canUse = false;
+            }
+            return canUse;
         }
     }
 }
