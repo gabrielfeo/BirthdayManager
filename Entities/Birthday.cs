@@ -23,7 +23,7 @@ namespace Entities
 		{
             var today = DateTime.Now;
             var currentYearBirthday = new DateTime(today.Year, Month, Day);
-            var yearOfNextBirthday = (today < currentYearBirthday) ? today.Year : today.Year+1;
+            var yearOfNextBirthday = (today.Date <= currentYearBirthday) ? today.Year : today.Year+1;
             return new DateTime(yearOfNextBirthday, Month, Day);
         }
 

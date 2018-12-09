@@ -25,6 +25,8 @@ namespace ConsoleBirthdayManager.Resources
                 "Welcome to the Birthday Manager, {0}!";
             public const string Header =
                 "Birthday Manager";
+            public const string TodaysBirthdays =
+                "Here\'s everyone whose birthday is today:";
             public const string ListingPeople =
                 "These are all the upcoming birthdays, starting from the closest one:";
             public const string SelectedCommand =
@@ -57,8 +59,10 @@ namespace ConsoleBirthdayManager.Resources
                 "There\'s nothing to do then. Should we try again?";
             public const string NoPeopleAdded =
                 "There\'s no one here yet. Please add somebody\'s birthday to get started.";
+            public const string NoBirthdaysToday =
+                "Looks like nothing\'s happening today.";
             public const string AddFailed =
-                "Couldn't add this birthday. Please try again.";
+                "Couldn\'t add this birthday. Please try again.";
             public const string DeleteFailed =
                 "Couldn\'t delete the given birthday. Please try again.";
             public const string UpdateNameFailed =

@@ -8,6 +8,7 @@ namespace ConsoleBirthdayManager.Commands.List
 
         private static IList<ICommand> _commands = new List<ICommand>
         {
+            new SeeTodaysBirthdaysCommand(),
             new ListPeopleCommand(),
             new SearchPeopleCommand(),
             new AddPersonCommand(),
