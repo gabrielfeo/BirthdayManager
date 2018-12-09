@@ -24,7 +24,7 @@ namespace ConsoleApp
 
         private static void PresentCommands()
         {
-            Console.Clear();
+            ClearConsole();
             BirthdayManager.PresentAvailableCommands();
         }
 
@@ -50,7 +50,13 @@ namespace ConsoleApp
         }
 
         private static void Pause(int milliseconds) => System.Threading.Thread.Sleep(milliseconds);
-        private static void ClearConsole() => Console.Clear();
+        private static void ClearConsole()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            BirthdayManager.PresentHeader();
+            Console.ResetColor();
+        }
         private static void WaitForInteraction() => Console.ReadKey();
     }
 }

@@ -17,6 +17,8 @@ namespace ConsoleApp.Resources
         {
             public const string Welcoming =
                 "Welcome to the Birthday Manager, {0}!";
+            public const string Header =
+                "Birthday Manager";
             public const string ListingPeople =
                 "These are all the upcoming birthdays, starting from the closest one:";
             public const string SelectedCommand =

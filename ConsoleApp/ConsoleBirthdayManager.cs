@@ -60,6 +60,12 @@ namespace ConsoleApp
             TextWriter.SkipLine();
         }
 
+        public void PresentHeader()
+        {
+            TextWriter.WriteLine(Messages.Declaration.Header);
+            TextWriter.SkipLine();
+        }
+
         public void PresentPeople()
         {
             var people = PersonRepository.GetAll();
