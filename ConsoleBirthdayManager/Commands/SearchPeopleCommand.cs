@@ -53,7 +53,7 @@ namespace ConsoleBirthdayManager.Commands
 
         private bool NameEqualsQuery(Person person)
         {
-            return person.Name.ToLower().Equals(_query.ToLower());
+            return person.Name.ToLower().Contains(_query.ToLower());
         }
 
         private bool BirthdayEqualsQuery(Person person)
