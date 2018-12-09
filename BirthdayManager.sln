@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBirthdayManager", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{DFC5A260-E1AD-43EB-9C86-0CDC72AB7F2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBirthdayManager", "WebBirthdayManager\WebBirthdayManager.csproj", "{9F079B57-DFBD-41C3-90DF-AD140BB19770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,5 +57,9 @@ Global
 		{DFC5A260-E1AD-43EB-9C86-0CDC72AB7F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFC5A260-E1AD-43EB-9C86-0CDC72AB7F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFC5A260-E1AD-43EB-9C86-0CDC72AB7F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F079B57-DFBD-41C3-90DF-AD140BB19770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F079B57-DFBD-41C3-90DF-AD140BB19770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F079B57-DFBD-41C3-90DF-AD140BB19770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F079B57-DFBD-41C3-90DF-AD140BB19770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
