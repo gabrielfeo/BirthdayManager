@@ -17,28 +17,34 @@ namespace ConsoleApp
             BirthdayManager = new ConsoleBirthdayManager(Console.Out, Console.In);
             BirthdayManager.PresentIntro();
             Pause(750);
-            LoopIndefinitely(action: PresentCommandsAndAskForAction);
+            LoopIndefinitely(PresentCommands,
+                             AskForAction);
         }
 
-        private static void LoopIndefinitely(Action action)
-        {
-            while (true) action();
-        }
-
-        private static void PresentCommandsAndAskForAction()
+        private static void PresentCommands()
         {
             Console.Clear();
             BirthdayManager.PresentAvailableCommands();
-            var command = BirthdayManager.AskForCommand(maxTries: 4);
-            Pause(1000);
-            Console.Clear();
-            BirthdayManager.Execute(command);
-            Console.ReadKey();
         }
-        
-        private static void Pause(int milliseconds)
+
+        private static void AskForAction()
         {
-            System.Threading.Thread.Sleep(milliseconds);
+            var command = BirthdayManager.AskForCommand(maxTries: 4);
+            Pause(1250);
+            ClearConsole();
+            BirthdayManager.Execute(command);
+            WaitForInteraction();
         }
+
+        private static void LoopIndefinitely(params Action[] actions)
+        {
+            while (true)
+                foreach (var action in actions)
+                    action.Invoke();
+        }
+
+        private static void Pause(int milliseconds) => System.Threading.Thread.Sleep(milliseconds);
+        private static void ClearConsole() => Console.Clear();
+        private static void WaitForInteraction() => Console.ReadKey();
     }
 }
