@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ConsoleApp.Adapter;
 using ConsoleApp.Adapter.PersonNs;
+using ConsoleApp.Extensions;
 using ConsoleApp.Resources;
 using Entities;
 
@@ -19,6 +20,7 @@ namespace ConsoleApp.Commands
             InitializeAdapter();
             DeclareActionToUser();
             ListAllPeople();
+            Writer.SkipLine();
         }
 
         private void InitializeAdapter()

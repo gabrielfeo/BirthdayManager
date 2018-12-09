@@ -57,6 +57,7 @@ namespace ConsoleApp
         {
             var username = Environment.UserName; 
             TextWriter.WriteLine(Messages.AppIntro, username);
+            TextWriter.SkipLine();
         }
 
         public void PresentPeople()
@@ -97,6 +98,7 @@ namespace ConsoleApp
                 TextWriter.Write(Messages.Instruction.ChooseCommand);
                 var command = CommandReader.ReadCommand();
                 TextWriter.WriteLine(Messages.Declaration.SelectedCommand, command.Name, command.Description);
+                TextWriter.SkipLine();
                 return command;
             }
             catch (InvalidCommandException)
