@@ -127,5 +127,10 @@ namespace ConsoleApp
             command.Reader = TextReader;
             command.Repository = PersonRepository;
         }
+
+        public void DisplayMessage(string message)
+        {
+            TextWriter.WriteLine(message);
+        }
     }
 }

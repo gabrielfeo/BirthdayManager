@@ -8,6 +8,8 @@ namespace ConsoleApp.Resources
         {
             public const string ChooseCommand =
                 "Please decide what to do: ";
+            public const string PressKeyToContinue =
+                "Press any key to continue.";
         }
 
 

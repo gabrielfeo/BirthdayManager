@@ -18,7 +18,8 @@ namespace ConsoleApp
             BirthdayManager.PresentIntro();
             Pause(750);
             LoopIndefinitely(PresentCommands,
-                             AskForAction);
+                             AskForAction,
+                             WaitForKeyToContinue);
         }
 
         private static void PresentCommands()
@@ -33,6 +34,11 @@ namespace ConsoleApp
             Pause(1250);
             ClearConsole();
             BirthdayManager.Execute(command);
+        }
+
+        public static void WaitForKeyToContinue()
+        {
+            BirthdayManager.DisplayMessage(Messages.Instruction.PressKeyToContinue);
             WaitForInteraction();
         }
 
