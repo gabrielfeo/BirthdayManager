@@ -18,27 +18,8 @@ namespace ConsoleApp.Adapter.PersonNs
         {
             using (var peopleEnumerator = people.GetEnumerator())
             {
-                if (IsEmpty(peopleEnumerator))
-                {
-                    WriteEmptyRepositoryMessage();
-                }
-                else
-                {
-                    EnumeratePeople(peopleEnumerator);
-                }
+                EnumeratePeople(peopleEnumerator);
             }
-        }
-
-        private bool IsEmpty(IEnumerator enumerator)
-        {
-            var isEmpty = !enumerator.MoveNext();
-            enumerator.Reset();
-            return isEmpty;
-        }
-
-        private void WriteEmptyRepositoryMessage()
-        {
-            ErrorWriter.WriteLine(Messages.Error.NoPeopleAdded);
         }
 
         private void EnumeratePeople(IEnumerator<Person> peopleEnumerator)

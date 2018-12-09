@@ -17,10 +17,15 @@ namespace ConsoleApp.Commands
         public override void Execute()
         {
             VerifyProperties();
-            InitializeAdapter();
-            DeclareActionToUser();
-            ListAllPeople();
-            Writer.SkipLine();
+            if (Repository.GetAll().Count > 0)
+            {
+                InitializeAdapter();
+                ListAllPeople();
+            }
+            else
+            {
+                WriteEmptyRepositoryMessage();
+            }
         }
 
         private void InitializeAdapter()
@@ -28,15 +33,17 @@ namespace ConsoleApp.Commands
             Adapter = new PersonListAdapter(Writer, ErrorWriter);
         }
 
-        private void DeclareActionToUser()
+        private void WriteEmptyRepositoryMessage()
         {
-            Writer.WriteLine(Messages.Declaration.ListingPeople);
+            ErrorWriter.WriteLine(Messages.Error.NoPeopleAdded);
         }
 
         private void ListAllPeople()
         {
+            Writer.WriteLine(Messages.Declaration.ListingPeople);
             var people = Repository.GetAll();
             Adapter.Write(people);
+            Writer.SkipLine();
         }
     }
 }
