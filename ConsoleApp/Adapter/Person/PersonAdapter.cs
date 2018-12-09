@@ -22,7 +22,7 @@ namespace ConsoleApp.Adapter.PersonNs
 
         private string GetFormatted(Person person)
         {
-            return $"{person.Name}  -  {person.Birthday.GetNextDate():yyyy MMMM dd}";
+            return $"{person.Name}: {person.Birthday.GetNextDate():yyyy MMMM dd}";
         }
     }
 }

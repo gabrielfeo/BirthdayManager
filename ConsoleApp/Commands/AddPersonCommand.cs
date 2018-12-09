@@ -38,7 +38,7 @@ namespace ConsoleApp.Commands
 
         private Birthday GetPersonBirthday()
         {
-            Writer.Write("Birthday: ");
+            Writer.Write("Birthday (month/day): ");
             var birthdayString = Reader.ReadLine();
             var successful = DateTime.TryParse(birthdayString, out var birthday);
             return successful ? new Birthday(birthday) : new Birthday();

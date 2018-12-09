@@ -26,7 +26,7 @@ namespace ConsoleApp.Adapter.PersonNs
         {
             for (var i = 1; peopleEnumerator.MoveNext(); i++)
             {
-                Writer.Write($"{i} - ");
+                Writer.Write($"  {i} - ");
                 base.Write(peopleEnumerator.Current);
             }
         }
