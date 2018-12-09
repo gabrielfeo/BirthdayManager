@@ -28,7 +28,7 @@ namespace ConsoleApp.Commands
 
             Writer.SkipLine();
             if (successful) Writer.WriteLine(Messages.Success.AddedPerson);
-            else ErrorWriter.WriteLine(Messages.Error.GenericError);
+            else ErrorWriter.WriteLine(Messages.Error.AddFailed);
         }
 
         private string GenerateGuid() => Guid.NewGuid().ToString();
