@@ -60,6 +60,7 @@ namespace Repository.PersonNs
             var peopleWithChangedPerson = currentPeople.Where(person => !person.HasId(changedPerson.Id))
                                                        .Append(changedPerson);
             WritePeopleToStore(peopleWithChangedPerson);
+            successful = GetAll().Contains(changedPerson);
         }
 
         public override void Delete(string personId, out bool successful)
@@ -70,6 +71,7 @@ namespace Repository.PersonNs
             var currentPeople = GetAll();
             var peopleWithoutDeletedPerson = currentPeople.Where(person => !person.HasId(personId));
             WritePeopleToStore(peopleWithoutDeletedPerson);
+            successful = !GetAll().Any(person => person.HasId(personId));
         }
 
         private string GetPeopleJsonFromStore()
