@@ -1,19 +1,21 @@
 ﻿@model TodayViewModel
 @{
-    ViewData["Title"] = "Today";
+    ViewData["Title"] = Model.PageTitle;
 }
 
 
 <div class="row">
     <div class="col-md-4" style="width: available">
-        <h3 >Today's birthdays</h3>
-        @if (!Model.PeopleWithBirthdayToday.Any())
+        
+        <h3 >@Model.PageHeader</h3>
+        
+        @if (Model.PeopleWithBirthdayToday.Any())
         {
-            <table>
+            <table class="table">
                 <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.PeopleWithBirthdayToday[0].Name)</th>
-                    <th>@Html.DisplayNameFor(model => model.PeopleWithBirthdayToday[0].Birthday)</th>
+                    <th>@Html.DisplayNameFor(model => model.PeopleWithBirthdayToday.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.PeopleWithBirthdayToday.First().Birthday)</th>
                 </tr>
                 </thead>
 
@@ -21,8 +23,8 @@
                 @foreach (var person in Model.PeopleWithBirthdayToday)
                 {
                     <tr>
-                        <td>@person.Name</td>
-                        <td>@person.Birthday.GetNextDate().ToString("yyyy MMMM dd")</td>
+                        <td>@Html.DisplayFor(model => person.Name)</td>
+                        <td>@Html.DisplayFor(model => person.Birthday)</td>
                     </tr>
                 }
                 </tbody>
@@ -30,7 +32,7 @@
         }
         else
         {
-            <h5>Looks like nothing's happening today.</h5>
+            <h5>@Model.NoBirthdaysTodayMessage</h5>
         }
     </div>
 </div>

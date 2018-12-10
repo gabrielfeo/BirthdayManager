@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
+using System.Resources;
 using System.Threading.Tasks;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Repository;
 using Validator;
 using WebBirthdayManager.Models;
@@ -15,7 +17,7 @@ namespace WebBirthdayManager.Controllers
 {
     public class HomeController : Controller
     {
-        public IRepository<Person> Repository { get; private set; }
+        private IRepository<Person> Repository { get; }
 
         public HomeController()
         {
@@ -25,11 +27,21 @@ namespace WebBirthdayManager.Controllers
 
         public IActionResult Index()
         {
-            TodayViewModel viewModel = new TodayViewModel()
+            var peopleWithBirthdayToday = Repository.Search(DateTime.Today.ToString());
+
+            PersonViewModel ModelToViewModel(Person person) => new PersonViewModel
             {
-                PeopleWithBirthdayToday = Repository.GetAll().ToImmutableList()
+                Name = person.Name,
+                Birthday = person.Birthday.GetNextDate().ToString("yyyy MMMM dd")
             };
-            return View(viewModel);
+
+            return View(new TodayViewModel
+            {
+                PageTitle = "Today",
+                PageHeader = "Today's birthdays",
+                PeopleWithBirthdayToday = peopleWithBirthdayToday.Select(ModelToViewModel),
+                NoBirthdaysTodayMessage = "Looks like nothing's happening today."
+            });
         }
 
         public IActionResult About()
