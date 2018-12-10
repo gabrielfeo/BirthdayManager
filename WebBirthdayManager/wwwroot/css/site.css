@@ -20,6 +20,9 @@ footer {
 .body-content {
     padding-left: 10px;
     padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Carousel */

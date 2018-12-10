@@ -1,0 +1,17 @@
+@model WebBirthdayManager.Models.Birthdays.UpdateViewModel
+@{
+    ViewBag.Title = Model.PageTitle;
+    Layout = "_Layout";
+}
+
+<h2>@Model.PageHeader</h2>
+<br/>
+
+<p>
+    <strong>@Model.PersonToBeUpdated.Name</strong> (@Model.PersonToBeUpdated.Birthday)
+</p>
+
+<form asp-controller="Birthdays" asp-action="PostUpdate">
+    @Model.NewNameInputFieldLabel: <input type="text"/>
+    <input type="submit" value="@Model.SubmitButtonLabel"/>
+</form>
