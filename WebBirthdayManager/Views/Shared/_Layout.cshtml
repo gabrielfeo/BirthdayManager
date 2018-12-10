@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WebBirthdayManager</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Birthday Manager</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -38,15 +38,22 @@
         </div>
     </nav>
 
-    <partial name="_CookieConsentPartial" />
+<div class="col-sm-3"align="left">
+    <ul>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Today's birthdays</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">All Birthdays</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Add Birthday</a></li>
+    </ul>
+</div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - WebBirthdayManager</p>
-        </footer>
-    </div>
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+</div>
+
+<footer>
+    <p>&copy; Gabriel Feo 2018 - WebBirthdayManager</p>
+</footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

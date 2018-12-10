@@ -1,14 +1,24 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 75px;
+    padding-bottom: 40px;
+}
+
+.col-sm-3 {
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+footer {
+    padding-left: 10px;
+    margin-left: 40px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
+    padding-left: 10px;
     padding-right: 15px;
 }
 
