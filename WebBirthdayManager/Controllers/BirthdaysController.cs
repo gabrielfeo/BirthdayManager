@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -7,6 +8,7 @@ using WebBirthdayManager.Cache;
 using WebBirthdayManager.Extensions;
 using WebBirthdayManager.Models;
 using WebBirthdayManager.Models.Birthdays.Add;
+using WebBirthdayManager.Models.Birthdays.Index;
 using WebBirthdayManager.Models.Birthdays.Update;
 
 namespace WebBirthdayManager.Controllers
@@ -22,9 +24,23 @@ namespace WebBirthdayManager.Controllers
             Repository = Cache.Get<IRepository<Person>>(CacheKeys.PersonRepository);
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View("Error");
+            var personViewModels = Repository.GetAll().Select(person => new PersonViewModel
+            {
+                Name = person.Name,
+                Birthday = person.Birthday.GetNextDate().ToString("yyyy MMMM dd"),
+                Id = person.Id
+            });
+            
+            return View(model: new IndexViewModel
+            {
+                PageTitle = "Birthdays",
+                PageHeader = "All Birthdays",
+                NoPeopleMessage = "There\'s no one here yet. Please add somebody\'s birthday to get started.",
+                People = personViewModels
+            });
         }
 
         [HttpGet]

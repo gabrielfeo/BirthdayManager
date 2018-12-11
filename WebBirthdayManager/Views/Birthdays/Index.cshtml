@@ -1,0 +1,42 @@
+﻿@model WebBirthdayManager.Models.Birthdays.Index.IndexViewModel
+@{
+    ViewData["Title"] = Model.PageTitle;
+}
+
+
+<div class="row">
+    <div class="col-md-4" style="width: available">
+
+        <h3 >@Model.PageHeader</h3>
+
+        @if (Model.People.Any())
+        {
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.People.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.People.First().Birthday)</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var person in Model.People)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => person.Name)</td>
+                        <td>@Html.DisplayFor(model => person.Birthday)</td>
+                        <td>
+                            <a href="@string.Concat("/Birthdays/Update/", person.Id)">Edit</a>
+                            <a href="@string.Concat("/Birthdays/Delete/", person.Id)">Delete</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h5>@Model.NoPeopleMessage</h5>
+        }
+    </div>
+</div>

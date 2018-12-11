@@ -9,11 +9,15 @@
 
 <form asp-action="Add" asp-controller="Birthdays" method="post">
 
+    <p>
     <label asp-for="FormModel.Name">@Model.NameInputFieldLabel:</label>
     <input asp-for="FormModel.Name" type="text"/>
+    </p>
     
+    <p>
     <label asp-for="FormModel.BirthdayDateTime">@Model.BirthdayInputFieldLabel:</label>
     <input asp-for="FormModel.BirthdayDateTime" type="date"/>
+    </p>
 
     <input type="submit" value="@Model.SubmitButtonLabel"/>
 </form>
