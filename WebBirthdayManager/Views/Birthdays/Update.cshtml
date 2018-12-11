@@ -11,7 +11,12 @@
     <strong>@Model.PersonToBeUpdated.Name</strong> (@Model.PersonToBeUpdated.Birthday)
 </p>
 
-<form asp-controller="Birthdays" asp-action="PostUpdate">
-    @Model.NewNameInputFieldLabel: <input type="text"/>
+<form asp-action="Update" asp-controller="Birthdays" method="post">
+
+    <label asp-for="FormModel.NewName">
+        @Model.NewNameInputFieldLabel:
+    </label>
+    <input asp-for="FormModel.NewName" type="text"/>
+
     <input type="submit" value="@Model.SubmitButtonLabel"/>
 </form>

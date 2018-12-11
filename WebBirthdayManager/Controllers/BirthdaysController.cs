@@ -1,10 +1,18 @@
+using System;
+using System.IO;
+using System.Net.Http.Formatting;
+using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Repository;
 using Validator;
+using WebBirthdayManager.Extensions;
+using WebBirthdayManager.Http;
 using WebBirthdayManager.Models;
 using WebBirthdayManager.Models.Birthdays;
+using WebBirthdayManager.Models.Birthdays.Forms;
 using static Repository.RepositoryFactory.StorageOption;
 
 namespace WebBirthdayManager.Controllers
@@ -29,6 +37,7 @@ namespace WebBirthdayManager.Controllers
             return View("Error");
         }
 
+        [HttpGet]
         public IActionResult Update(string id)
         {
             var personToBeUpdated = Repository.GetById(id);
@@ -50,16 +59,17 @@ namespace WebBirthdayManager.Controllers
             });
         }
 
-        [HttpPatch]
-        public IActionResult PostUpdate(string id, string newName)
+        [HttpPost]
+        public IActionResult Update(string id, UpdateFormModel formModel)
         {
-            bool personFound, updateSuccessful = false;
-            
+            bool updateSuccessful = false;
+
             var personToBeUpdated = Repository.GetById(id);
-            personFound = (personToBeUpdated != null);
-            if (personFound)
+            bool personFound = (personToBeUpdated != null);
+
+            if (personFound && formModel.NewName.IsNotEmpty())
             {
-                personToBeUpdated.Name = newName;
+                personToBeUpdated.Name = formModel.NewName;
                 Repository.Update(personToBeUpdated, out updateSuccessful);
             }
 
