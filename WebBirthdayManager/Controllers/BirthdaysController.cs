@@ -1,3 +1,4 @@
+using System;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -5,6 +6,7 @@ using Repository;
 using WebBirthdayManager.Cache;
 using WebBirthdayManager.Extensions;
 using WebBirthdayManager.Models;
+using WebBirthdayManager.Models.Birthdays.Add;
 using WebBirthdayManager.Models.Birthdays.Update;
 
 namespace WebBirthdayManager.Controllers
@@ -25,9 +27,29 @@ namespace WebBirthdayManager.Controllers
             return View("Error");
         }
 
+        [HttpGet]
         public IActionResult Add()
         {
-            return View("Error");
+            return View(model: new AddViewModel
+            {
+                PageTitle = "Add Birthday",
+                PageHeader = "Add Birthday",
+                NameInputFieldLabel = "Name",
+                BirthdayInputFieldLabel = "Birthday",
+                SubmitButtonLabel = "Add",
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Add(AddFormModel formModel)
+        {
+            var birthday = new Birthday(formModel.BirthdayDateTime);
+            var person = new Person(Guid.NewGuid().ToString(), formModel.Name, birthday);
+            
+            Repository.Insert(person, out bool addWasSuccessful);
+
+            if (addWasSuccessful) return Ok();
+            return BadRequest();
         }
 
         [HttpGet]
@@ -66,9 +88,9 @@ namespace WebBirthdayManager.Controllers
                 Repository.Update(personToBeUpdated, out updateSuccessful);
             }
 
-            if (updateSuccessful) return new OkResult();
-            else if (!personFound) return new NotFoundResult();
-            else return new BadRequestResult();
+            if (updateSuccessful) return Ok();
+            else if (!personFound) return NotFound();
+            else return BadRequest();
         }
 
         public IActionResult Delete(string id)

@@ -1,0 +1,19 @@
+@model WebBirthdayManager.Models.Birthdays.Add.AddViewModel
+@{
+    ViewBag.Title = Model.PageTitle;
+    Layout = "_Layout";
+}
+
+<h2>@Model.PageHeader</h2>
+<br/>
+
+<form asp-action="Add" asp-controller="Birthdays" method="post">
+
+    <label asp-for="FormModel.Name">@Model.NameInputFieldLabel:</label>
+    <input asp-for="FormModel.Name" type="text"/>
+    
+    <label asp-for="FormModel.BirthdayDateTime">@Model.BirthdayInputFieldLabel:</label>
+    <input asp-for="FormModel.BirthdayDateTime" type="date"/>
+
+    <input type="submit" value="@Model.SubmitButtonLabel"/>
+</form>
