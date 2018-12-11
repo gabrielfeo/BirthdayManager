@@ -1,4 +1,4 @@
-namespace WebBirthdayManager.Models.Birthdays.Forms
+namespace WebBirthdayManager.Models.Birthdays.Update
 {
     public class UpdateFormModel
     {

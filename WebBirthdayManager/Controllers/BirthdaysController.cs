@@ -1,22 +1,11 @@
-using System;
-using System.IO;
-using System.Net.Http.Formatting;
-using System.Text;
-using System.Threading.Tasks;
 using Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Caching.Memory;
 using Repository;
-using Validator;
 using WebBirthdayManager.Cache;
 using WebBirthdayManager.Extensions;
-using WebBirthdayManager.Http;
 using WebBirthdayManager.Models;
-using WebBirthdayManager.Models.Birthdays;
-using WebBirthdayManager.Models.Birthdays.Forms;
-using static Repository.RepositoryFactory.StorageOption;
+using WebBirthdayManager.Models.Birthdays.Update;
 
 namespace WebBirthdayManager.Controllers
 {
@@ -46,7 +35,7 @@ namespace WebBirthdayManager.Controllers
         {
             var personToBeUpdated = Repository.GetById(id);
             if (personToBeUpdated is null) return View("Error");
-            
+
             var personViewModel = new PersonViewModel
             {
                 Name = personToBeUpdated.Name,
