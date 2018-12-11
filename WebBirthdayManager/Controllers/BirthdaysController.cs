@@ -64,7 +64,7 @@ namespace WebBirthdayManager.Controllers
             
             Repository.Insert(person, out bool addWasSuccessful);
 
-            if (addWasSuccessful) return Ok();
+            if (addWasSuccessful) return RedirectToAction("Index");
             return BadRequest();
         }
 
@@ -104,7 +104,7 @@ namespace WebBirthdayManager.Controllers
                 Repository.Update(personToBeUpdated, out updateSuccessful);
             }
 
-            if (updateSuccessful) return Ok();
+            if (updateSuccessful) return RedirectToAction("Index");
             else if (!personFound) return NotFound();
             else return BadRequest();
         }
