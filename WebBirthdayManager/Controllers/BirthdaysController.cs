@@ -109,9 +109,12 @@ namespace WebBirthdayManager.Controllers
             else return BadRequest();
         }
 
+        [HttpDelete]
         public IActionResult Delete(string id)
         {
-            return View("Error");
+            Repository.Delete(id, out bool deleteWasSuccessful);
+            if (deleteWasSuccessful) return RedirectToAction("Index");
+            else return BadRequest();
         }
     }
 }
