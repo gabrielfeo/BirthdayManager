@@ -4,10 +4,13 @@ using System.Net.Http.Formatting;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Caching.Memory;
 using Repository;
 using Validator;
+using WebBirthdayManager.Cache;
 using WebBirthdayManager.Extensions;
 using WebBirthdayManager.Http;
 using WebBirthdayManager.Models;
@@ -20,11 +23,12 @@ namespace WebBirthdayManager.Controllers
     public class BirthdaysController : Controller
     {
         private IRepository<Person> Repository { get; }
+        private IMemoryCache Cache { get; }
 
-        public BirthdaysController()
+        public BirthdaysController(IMemoryCache cache)
         {
-            var personValidator = new ValidatorFactory().NewValidator<Person>();
-            Repository = new RepositoryFactory().NewRepository(Filesystem, personValidator);
+            this.Cache = cache;
+            Repository = Cache.Get<IRepository<Person>>(CacheKeys.PersonRepository);
         }
 
         public IActionResult Index()
@@ -42,7 +46,7 @@ namespace WebBirthdayManager.Controllers
         {
             var personToBeUpdated = Repository.GetById(id);
             if (personToBeUpdated is null) return View("Error");
-
+            
             var personViewModel = new PersonViewModel
             {
                 Name = personToBeUpdated.Name,

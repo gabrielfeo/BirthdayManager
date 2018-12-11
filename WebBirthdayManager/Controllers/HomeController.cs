@@ -7,22 +7,29 @@ using System.Resources;
 using System.Threading.Tasks;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Localization;
 using Repository;
 using Validator;
+using WebBirthdayManager.Cache;
 using WebBirthdayManager.Models;
 using static Repository.RepositoryFactory.StorageOption;
 
 namespace WebBirthdayManager.Controllers
 {
     public class HomeController : Controller
+
     {
         private IRepository<Person> Repository { get; }
+        private IMemoryCache Cache { get; }
 
-        public HomeController()
+        public HomeController(IMemoryCache cache)
         {
             var personValidator = new ValidatorFactory().NewValidator<Person>();
             Repository = new RepositoryFactory().NewRepository(Filesystem, personValidator);
+            this.Cache = cache;
+
+            Cache.Set(CacheKeys.PersonRepository, Repository);
         }
 
         public IActionResult Index()
