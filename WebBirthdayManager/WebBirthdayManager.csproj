@@ -14,8 +14,4 @@
         <ProjectReference Include="..\Validator\Validator.csproj"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="Properties\Cache"/>
-    </ItemGroup>
-
 </Project>

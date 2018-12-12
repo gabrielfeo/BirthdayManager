@@ -3,9 +3,8 @@
     ViewData["Title"] = Model.PageTitle;
 }
 
-
 <div class="row">
-    <div class="col-md-4" style="width: available">
+    <div class="col-md-4" style="width: auto">
 
         <h3 >@Model.PageHeader</h3>
 
@@ -26,8 +25,9 @@
                         <td>@Html.DisplayFor(model => person.Name)</td>
                         <td>@Html.DisplayFor(model => person.Birthday)</td>
                         <td>
-                            <a href="@string.Concat("/Birthdays/Update/", person.Id)">Edit</a>
-                            <a href="@string.Concat("/Birthdays/Delete/", person.Id)">Delete</a>
+                            @Html.ActionLink("Update", "Update", new { id = person.Id })
+                             | 
+                            @Html.ActionLink("Delete", "Delete", new { id = person.Id }, new { onclick = "return confirm('Delete?');" })
                         </td>
                     </tr>
                 }
