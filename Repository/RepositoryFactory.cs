@@ -31,6 +31,8 @@ namespace Repository
                         return new MemoryPersonRepository(personValidator) as IRepository<TData>;
                     case StorageOption.Filesystem:
                         return new FilesystemPersonRepository(personValidator) as IRepository<TData>;
+                    case StorageOption.RelationalDatabase:
+                        return new DbPersonRepository(personValidator) as IRepository<TData>;
                     default:
                         throw new ArgumentException($"No implementation available for storage option {storage}",
                                                     nameof(storage));

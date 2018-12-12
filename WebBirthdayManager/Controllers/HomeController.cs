@@ -26,7 +26,7 @@ namespace WebBirthdayManager.Controllers
         public HomeController(IMemoryCache cache)
         {
             var personValidator = new ValidatorFactory().NewValidator<Person>();
-            Repository = new RepositoryFactory().NewRepository(Filesystem, personValidator);
+            Repository = new RepositoryFactory().NewRepository(RelationalDatabase, personValidator);
             this.Cache = cache;
 
             Cache.Set(CacheKeys.PersonRepository, Repository);
